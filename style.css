@@ -24,6 +24,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 .content {
@@ -127,6 +128,7 @@ body {
 nav {
   background-color: rgb(137, 188, 217);
   height: 100px;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -154,3 +156,71 @@ nav a {
   color: rgb(38, 46, 52);
   text-decoration: none;
 }
+
+.why-me {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 0;
+  color: white;
+}
+
+.why-me-title {
+  font-size: 64px;
+  color: rgb(137, 188, 217);
+  margin-bottom: 40px;
+}
+
+.why-me-content {
+  display: flex;
+  gap: 80px;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.why-me-location{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.bg-location{
+  background-image: url("./assets/img/icons/bg-location-icon.png");
+  width: 60px;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start ;
+  align-items: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+ 
+
+.why-me-text {
+  max-width: 500px;
+}
+
+.why-me-question {
+  margin-bottom: 10px;
+  font-size: 28px;
+}
+
+.why-me-answer {
+  line-height: 1.5;
+}
+
+.why-me-cta {
+  margin-top: 40px;
+  padding: 12px 32px;
+  background-color: rgb(36 , 46, 52);
+  color: rgb(137, 188, 217);
+  border: 1px solid rgb(137, 188, 217);
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 50px;
+  align-self: flex-end;
+}
+
