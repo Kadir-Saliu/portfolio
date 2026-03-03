@@ -1,6 +1,9 @@
 * {
   margin: 0;
   box-sizing: border-box;
+  button {
+    cursor: pointer;
+  }
 }
 
 @font-face {
@@ -256,7 +259,6 @@ nav a {
   object-fit: contain;
 }
 
-
 .to-learn-skills {
   width: 50%;
   background-image: url(./assets/img/icons/bg-skills.png);
@@ -280,5 +282,153 @@ nav a {
 }
 
 .learn-text {
- color: white;
+  color: white;
+}
+
+.projects {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+    width: 100%;
+}
+
+.projects-title {
+  font-size: clamp(32px, 5vw, 64px);
+  color: rgb(137, 188, 217);
+  margin-bottom: 40px;
+}
+
+.projects-layout {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.projects-selector {
+  display: flex;
+  gap: 20px;
+  padding-left: 100px;
+}
+
+.projects-selector-btn {
+  background-color: rgb(38, 46, 52);
+  color: rgb(137, 188, 217);
+  border: none;
+  height: 100px;
+  font-size: 32px;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.projects-selector-btn:hover {
+  color: white;
+}
+
+.projects-viewport {
+  background-color: rgb(45, 56, 63);
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  width: 100%;
+ 
+}
+
+.project-content {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.project-section {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.project-bullet {
+  width: 32px;
+  height: 32px;
+}
+
+.project-text {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.project-heading {
+  font-size: 24px;
+  color: white;
+}
+
+.project-description {
+  color: rgb(200, 220, 230);
+  line-height: 1.5;
+}
+
+.project-preview {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.el-pollo-img {
+  height: 300px;
+  width: 500px;
+  border-radius: 30px;
+}
+
+.projects-selector-btn.active {
+  background-color: rgb(45, 56, 63); /* gleiche Farbe wie projects-viewport */
+  color: white;
+  border-radius: 30px 30px 0 0;
+}
+
+.project-links {
+  display: flex;
+  gap: 20px;
+  
+}
+
+.project-btn-live {
+  background-color: rgb(137, 188, 217);
+  color: rgb(45, 56, 63);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 100px;
+  border-radius: 30px;
+  text-decoration: none;
+}
+
+.project-btn-live:hover {
+  background-color: white;
+}
+
+.project-btn-git {
+  background-color: rgb(45, 56, 63);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 100px;
+  border-radius: 30px;
+  border: 1px solid rgb(137, 188, 217);
+  text-decoration: none;
+}
+
+.project-btn-git:hover {
+  background-color: rgba(0, 0, 0, 0.05);
 }
