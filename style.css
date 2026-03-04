@@ -436,3 +436,27 @@ nav a {
 .project-btn-git:hover {
   background-color: rgba(0, 0, 0, 0.05);
 }
+
+.testimonials{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.testimonials-list{
+  display: flex;
+}
+
+.testimonial-card{
+  background-image: url(./assets/img/icons/bg-skills.png);
+ background-repeat: no-repeat; 
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ height: 500px;
+}
+
+.testimonial-card:hover{
+  background-image: url(./assets/img/icons/bg-hover-skills.png);
+}
