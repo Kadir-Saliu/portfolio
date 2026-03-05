@@ -159,3 +159,17 @@ function getProjects() {
     },
   };
 }
+
+
+fetch("./contact_form_mail.php", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    name: "Test",
+    email: "test@example.com",
+    message: "Hallo"
+  })
+})
+  .then(async (r) => ({ status: r.status, body: await r.text() }))
+  .then(console.log)
+  .catch(console.error);
