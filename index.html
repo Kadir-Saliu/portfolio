@@ -250,44 +250,43 @@
         Need a teamplayer? Here what my colleagues said about me.
       </h2>
 
-      <ul class="testimonials-list">
-        <li class="testimonial-item">
-          <article class="testimonial-card">
-            <h3 class="testimonial-name">Sahra Mueller</h3>
-            <p class="testimonial-project">Project: DA Bubble</p>
-            <p class="testimonial-text">
-              Claudia had to develop, format and deliver content in
-              collaboration with the team members. She is a reliable and
-              friendly person.
-            </p>
-            <a href="#" class="testimonial-link">LinkedIn Profile</a>
-          </article>
-        </li>
+      <div class="testimonials-wrapper">
+        <article class="testimonial-card">
+          <h3 class="testimonial-name">Sahra Mueller</h3>
+          <p class="testimonial-project">Project: DA Bubble</p>
+          <p class="testimonial-text">
+            "Claudia had to develop, format <br />
+            and deliver content in collaboration <br />
+            with the team members. She is a <br />
+            reliable and friendly person."
+          </p>
+          <a href="#" class="testimonial-link">LinkedIn Profile</a>
+        </article>
 
-        <li class="testimonial-item">
-          <article class="testimonial-card">
-            <h3 class="testimonial-name">James Rugman</h3>
-            <p class="testimonial-project">Project: Join</p>
-            <p class="testimonial-text">
-              Claudia is a reliable and friendly person. Works in a structured
-              way and writes clear code. I recommend her as a colleague.
-            </p>
-            <a href="#" class="testimonial-link">LinkedIn Profile</a>
-          </article>
-        </li>
+        <article class="testimonial-card">
+          <h3 class="testimonial-name">James Rugman</h3>
+          <p class="testimonial-project">Project: Join</p>
+          <p class="testimonial-text">
+            "Claudia is a reliable and friendly <br />
+            person. Works in a structured way <br />
+            and writes clear code. <br />
+            I recommend her as a colleague."
+          </p>
+          <a href="#" class="testimonial-link">LinkedIn Profile</a>
+        </article>
 
-        <li class="testimonial-item">
-          <article class="testimonial-card">
-            <h3 class="testimonial-name">Evelyn Marx</h3>
-            <p class="testimonial-project">Project: Sharkie</p>
-            <p class="testimonial-text">
-              She is a trustworthy teamplayer and can cope with the stress of
-              deadlines. Structured work and clear code.
-            </p>
-            <a href="#" class="testimonial-link">LinkedIn Profile</a>
-          </article>
-        </li>
-      </ul>
+        <article class="testimonial-card">
+          <h3 class="testimonial-name">Evelyn Marx</h3>
+          <p class="testimonial-project">Project: Sharkie</p>
+          <p class="testimonial-text">
+            " She is a trustworthy teamplayer <br />
+            and can cope with the stress of <br />
+            deadlines. Structured work and <br />
+            clear code."
+          </p>
+          <a href="#" class="testimonial-link">LinkedIn Profile</a>
+        </article>
+      </div>
     </section>
 
     <section class="contact">
@@ -305,7 +304,7 @@
 
         <div class="contact-info">
           <a class="contact-info-item" href="mailto:Kadir_Saliu@hotmail.de">
-            <img src="./assets/img/icons/mail-icon.png" alt="" />
+            <img src="./assets/img/icons/email-icon.png" alt="" />
             E-mail: Kadir_Saliu@hotmail.de
           </a>
 
@@ -318,17 +317,30 @@
 
       <form class="contact-form" action="">
         <div class="contact-form-row">
-          <input class="contact-input" type="text" placeholder="Your name" />
-          <input class="contact-input" type="email" placeholder="Your email" />
+          <div class="input-group">
+            <label for="name">Your Name</label>
+            <input id="name" class="contact-input" type="text" />
+          </div>
+
+          <div class="input-group">
+            <label for="email">Your Email</label>
+            <input id="email" class="contact-input" type="email" />
+          </div>
         </div>
 
-        <input class="contact-input" type="text" placeholder="Your message" />
+        <div class="input-group-message">
+          <label for="message">Your Message</label>
+          <textarea id="message" class="contact-input-message"></textarea>
+        </div>
 
         <div class="contact-privacy">
-          <input class="contact-checkbox" type="checkbox" id="privacy" />
-          <label for="privacy" class="contact-privacy-text">
-            I`ve read the <a href="">privacy policy</a>
-            and agree to the processing of my data as outlined.
+          <label class="checkbox-wrapper">
+            <input class="contact-checkbox" type="checkbox" id="privacy" />
+            <span class="checkbox-custom"></span>
+            <p class="contact-privacy-text">
+              I've read the <a href="" class="privacy-policy">privacy policy</a>
+              and agree to the processing of my data as outlined.
+            </p>
           </label>
         </div>
 
@@ -337,19 +349,21 @@
     </section>
 
     <footer>
-      <div>
+      <div class="footer-legal">
         <a href="">Legal notice</a>
         <span>&copy; Kadir Saliu 2026</span>
       </div>
 
-        <img src="./assets/img/icons/logo-nav.png" alt="">
+      <img src="./assets/img/icons/logo-nav.png" alt="" />
 
-        <div>
-          <a href=""><img src="./assets/img/icons/github-icon.png" alt=""></a>
-          <a href=""><img src="./assets/img/icons/mail-icon.png" alt=""></a>
-          <a href=""><img src="./assets/img/icons/linkedin-icon.png" alt=""></a>
-        </div>
-      </footer>
+      <div>
+        <a href=""><img src="./assets/img/icons/github-footer.png" alt="" /></a>
+        <a href=""><img src="./assets/img/icons/mail-footer.png" alt="" /></a>
+        <a href=""
+          ><img src="./assets/img/icons/linkedin-footer.png" alt=""
+        /></a>
+      </div>
+    </footer>
 
     <script src="./script.js"></script>
   </body>
