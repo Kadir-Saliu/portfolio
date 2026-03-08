@@ -21,6 +21,21 @@
   src: url(./assets/fonts/Syne/Syne-VariableFont_wght.ttf);
 }
 
+@font-face {
+  font-family: "Mea_Culpa";
+  src: url(./assets/fonts/Mea_Culpa/MeaCulpa-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Great_Vipes";
+  src: url(./assets/fonts/Great_Vibes/GreatVibes-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Imperial_Script";
+  src: url(./assets/fonts/Imperial_Script/ImperialScript-Regular.ttf);
+}
+
 body {
   background-color: rgb(38, 46, 52);
   font-family: "Anta";
@@ -100,31 +115,17 @@ body {
   gap: 10px;
 }
 
-.mail-icon:hover circle {
-  fill: rgb(137, 188, 217);
+.hero-github:hover .hero-github-img {
+  content: url("./assets/img/icons/git-hover-hero.png");
 }
 
-/* Kreis wird blau */
-.bell-icon:hover circle {
-  fill: #89bcd9;
+.hero-mail:hover .hero-mail-img {
+  content: url("./assets/img/icons/mail-hover-hero.png");
 }
 
-/* Innere Figur wird dunkel */
-.bell-icon:hover path {
-  fill: rgb(38, 46, 52);
+.hero-linkedin:hover .hero-linkedin-img {
+  content: url("./assets/img/icons/linked-hover-hero.png");
 }
-
-/* Nur der Kreis wird blau */
-.linkedin-icon:hover circle {
-  fill: #89bcd9;
-}
-
-/* Innere Figur bleibt ungefüllt */
-.linkedin-icon:hover path {
-  stroke: rgb(38, 46, 52);
-}
-
-/* Kreis blau beim Hover */
 
 .hero-title {
   color: white;
@@ -159,6 +160,13 @@ body {
   justify-content: center;
 }
 
+.logo-title {
+  font-family: Great_Vipes;
+  color: rgb(137, 188, 217);
+  font-size: 50px;
+  font-weight: 100;
+}
+
 /* ---------- NAV ---------- */
 
 nav {
@@ -177,6 +185,13 @@ nav {
 nav a {
   color: rgb(38, 46, 52);
   text-decoration: none;
+}
+
+nav h2 {
+  font-family: Great_Vipes;
+  color: rgb(38, 46, 52);
+  font-size: 40px;
+  font-weight: 100;
 }
 
 .nav-links {
@@ -745,6 +760,17 @@ footer {
   align-items: flex-end;
 }
 
+footer a {
+  text-decoration: none;
+}
+
+footer h2 {
+  font-family: Great_Vipes;
+  color: rgb(38, 46, 52);
+  font-size: 40px;
+  font-weight: 100;
+}
+
 .footer-legal {
   display: flex;
   flex-direction: column;
@@ -753,9 +779,25 @@ footer {
 
 .footer-legal a {
   color: rgb(45, 56, 63);
-  text-decoration: none;
 }
 
 .footer-legal a:hover {
   color: white;
+}
+
+.git-icon-footer:hover {
+  fill: white;
+  fill-rule: white;
+}
+
+.icon-github:hover .github-img {
+  content: url("./assets/img/icons/git-hover-footer.png");
+}
+
+.icon-mail:hover .mail-img {
+  content: url("./assets/img/icons/mail-hover-footer.png");
+}
+
+.icon-linkedin:hover .linkedin-img {
+  content: url("./assets/img/icons/linked-hover-footer.png");
 }
