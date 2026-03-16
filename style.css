@@ -61,9 +61,6 @@ body {
 .hero-image {
   width: 50%;
   height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
 }
 
 .hero-content {
@@ -76,22 +73,25 @@ body {
   background-image: url("./assets/img/background/bg-shape.png");
   object-fit: contain;
   background-repeat: no-repeat;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  height: 100%;
+  height: 680px;
   width: 100%;
-  background-position: left;
+  margin-top: 70px;
+  background-position: bottom;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .bg-shape-background:hover {
   background-image: url("./assets/img/background/bg-shape-hover.png");
+  z-index: 2;
 }
 
 /* Foto kleiner als Shape, leicht nach rechts/oben versetzt */
 .personal-photo {
-  width: 500px;
-  height: 800px;
+  height: 100%;
+  bottom: 0;
+  left: 50px;
   object-fit: cover;
 }
 
@@ -174,12 +174,11 @@ nav {
   height: 100px;
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   position: sticky;
   top: 0;
-  padding: 0 100px;
-  z-index: 1000;
+  z-index: 1;
 }
 
 nav a {
@@ -192,6 +191,12 @@ nav h2 {
   color: rgb(38, 46, 52);
   font-size: 40px;
   font-weight: 100;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .nav-links {
@@ -229,10 +234,11 @@ nav h2 {
 }
 
 .why-me-content {
+  width: 100%;
   display: flex;
-  gap: 80px;
   align-items: flex-start;
-  justify-content: center;
+justify-content: center;
+gap: 100px;
 }
 
 .why-me-location {
@@ -313,7 +319,6 @@ nav h2 {
 }
 
 .to-learn-skills {
-  width: 50%;
   background-image: url(./assets/img/icons/bg-skills.png);
   background-repeat: no-repeat;
   background-size: contain;
@@ -543,7 +548,6 @@ nav h2 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 800px;
 }
 
 .contact p {
@@ -754,10 +758,13 @@ footer {
   padding-bottom: 50px;
   padding-top: 50px;
   background-color: rgb(137, 188, 217);
-  display: flex;
   width: 100%;
   height: 150px;
-  justify-content: space-around;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
 }
 
