@@ -160,16 +160,24 @@ function getProjects() {
   };
 }
 
-
 fetch("./contact_form_mail.php", {
   method: "POST",
   headers: { "Content-Type": "application/json" },
   body: JSON.stringify({
     name: "Test",
     email: "test@example.com",
-    message: "Hallo"
-  })
+    message: "Hallo",
+  }),
 })
   .then(async (r) => ({ status: r.status, body: await r.text() }))
   .then(console.log)
   .catch(console.error);
+
+const links = document.querySelectorAll(".nav-link");
+
+links.forEach((link) => {
+  link.addEventListener("click", () => {
+    links.forEach((l) => l.classList.remove("active"));
+    link.classList.add("active");
+  });
+});

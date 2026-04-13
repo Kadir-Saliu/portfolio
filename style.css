@@ -218,6 +218,16 @@ nav h2 {
   text-decoration: none;
 }
 
+
+
+.nav-link.active {
+  background-image: url("./assets/img/background/nav-bg-shape.png"); /* dein Figma-Export */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: #fff; /* weiße Schrift */
+}
+
 .why-me {
   display: flex;
   flex-direction: column;
@@ -237,8 +247,8 @@ nav h2 {
   width: 100%;
   display: flex;
   align-items: flex-start;
-justify-content: center;
-gap: 100px;
+  justify-content: center;
+  gap: 100px;
 }
 
 .why-me-location {
@@ -355,6 +365,7 @@ gap: 100px;
   font-size: clamp(32px, 5vw, 64px);
   color: rgb(137, 188, 217);
   margin-bottom: 40px;
+  text-align: center;
 }
 
 .projects-layout {
@@ -367,7 +378,6 @@ gap: 100px;
 .projects-selector {
   display: flex;
   gap: 20px;
-  padding-left: 100px;
 }
 
 .projects-selector-btn {
@@ -384,6 +394,11 @@ gap: 100px;
 
 .projects-selector-btn:hover {
   color: white;
+}
+
+.projects-viewport-container {
+  background-color: rgb(45, 56, 63);
+  width: 100%;
 }
 
 .projects-viewport {
@@ -543,6 +558,10 @@ gap: 100px;
   text-decoration: underline;
 }
 
+.testimonial-text {
+  padding: 0 20px;
+}
+
 .contact {
   display: flex;
   flex-direction: column;
@@ -669,15 +688,30 @@ gap: 100px;
 .contact-input {
   height: 50px;
   border-radius: 30px;
-  background-color: rgb(45, 56, 63);
+  background-color: rgb(38, 46, 52);
   border: 1px solid rgb(137, 188, 217);
+  color: white;
+  padding-left: 10px;
+}
+
+.contact-input:focus {
+  background-color: rgb(49, 63, 72);
+  color: white;
 }
 
 .contact-input-message {
   height: 150px;
   border-radius: 30px;
-  background-color: rgb(45, 56, 63);
+  background-color: rgb(38, 46, 52);
   border: 1px solid rgb(137, 188, 217);
+  color: white;
+  padding-left: 10px;
+  padding-top: 10px;
+}
+
+.contact-input-message:focus {
+  background-color: rgb(49, 63, 72);
+  color: white;
 }
 
 .contact-privacy {
