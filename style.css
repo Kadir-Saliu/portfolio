@@ -49,6 +49,7 @@ body {
   max-width: 1440px;
   width: 100%;
   margin: 0 auto;
+  padding: 0 20px;
 }
 
 /* ---------- HERO ---------- */
@@ -56,6 +57,7 @@ body {
 .hero {
   display: flex;
   padding-top: 50px;
+  gap: 40px;
 }
 
 .hero-image {
@@ -136,13 +138,16 @@ body {
   flex: 1;
 }
 
-.hero-title h1 {
-  font-size: 140px;
+.hero-title-main {
+  font-size: 72px;
   font-weight: 100;
 }
 
-.hero-title h3 {
-  font-size: 50px;
+.hero-subtitle {
+  font-size: 36px;
+  letter-spacing: 3px;
+  font-weight: 300;
+  margin-top: -10px;
 }
 
 .hero-arrow-down {
@@ -218,8 +223,6 @@ nav h2 {
   text-decoration: none;
 }
 
-
-
 .nav-link.active {
   background-image: url("./assets/img/background/nav-bg-shape.png"); /* dein Figma-Export */
   background-size: cover;
@@ -256,6 +259,7 @@ nav h2 {
   align-items: center;
   justify-content: center;
   gap: 10px;
+  font-size: 32px;
 }
 
 .bg-location {
@@ -373,6 +377,7 @@ nav h2 {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-top: 20px;
 }
 
 .projects-selector {
@@ -384,8 +389,8 @@ nav h2 {
   background-color: rgb(38, 46, 52);
   color: rgb(137, 188, 217);
   border: none;
-  height: 100px;
-  font-size: 32px;
+  height: 80px;
+  font-size: 28px;
   padding: 10px 20px;
   cursor: pointer;
   border-radius: 8px;
@@ -446,7 +451,7 @@ nav h2 {
 }
 
 .project-preview {
-  flex: 1;
+  flex: 1.2;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -458,16 +463,21 @@ nav h2 {
   color: white;
 }
 
+.tech-icon {
+  width: 50px;
+  height: 50px;
+}
+
 .el-pollo-img {
-  height: 300px;
   width: 500px;
+  height: auto;
   border-radius: 30px;
 }
 
 .projects-selector-btn.active {
   background-color: rgb(45, 56, 63); /* gleiche Farbe wie projects-viewport */
   color: white;
-  border-radius: 30px 30px 0 0;
+  border-radius: 20px 20px 0 0;
 }
 
 .project-links {
@@ -520,6 +530,7 @@ nav h2 {
   align-items: center;
   justify-content: center;
   padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 .testimonials-heading {
@@ -559,7 +570,9 @@ nav h2 {
 }
 
 .testimonial-text {
-  padding: 0 20px;
+  padding: 0 30px;
+  text-align: center;
+  line-height: 1.5;
 }
 
 .contact {
@@ -575,7 +588,7 @@ nav h2 {
 
 .contact-content {
   display: flex;
-  gap: 20px;
+  gap: 40px;
 }
 
 .contact-description {
@@ -660,7 +673,7 @@ nav h2 {
   display: flex;
   width: 100%;
   flex-direction: column;
-  padding-top: 100px;
+  padding-top: 60px;
   gap: 20px;
 }
 
@@ -707,11 +720,24 @@ nav h2 {
   color: white;
   padding-left: 10px;
   padding-top: 10px;
+  resize: none;
 }
 
 .contact-input-message:focus {
   background-color: rgb(49, 63, 72);
   color: white;
+}
+
+.error-message {
+  display: none;
+  color: rgb(255, 120, 120) !important; 
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.contact-input.error,
+.contact-input-message.error {
+  border-color: rgb(255, 120, 120);
 }
 
 .contact-privacy {
@@ -770,6 +796,7 @@ nav h2 {
   color: white;
   font-size: 14px;
   line-height: 1.4;
+  max-width: 500px;
 }
 
 .contact-submit {

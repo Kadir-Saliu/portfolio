@@ -68,8 +68,8 @@
             </div>
           </div>
           <div class="hero-title">
-            <h1>Kadir Saliu</h1>
-            <h3>FRONTEND DEVELOPER</h3>
+              <h1 class="hero-title-main">Kadir Saliu</h1>
+            <h2 class="hero-subtitle">FRONTEND DEVELOPER</h2>
           </div>
 
           <div class="hero-arrow-down">
@@ -410,17 +410,24 @@
             <div class="input-group">
               <label for="name">Your Name</label>
               <input id="name" class="contact-input" type="text" />
+              <p class="error-message">Your name is required</p>
             </div>
 
             <div class="input-group">
               <label for="email">Your Email</label>
               <input id="email" class="contact-input" type="email" />
+              <p class="error-message">Your email is required</p>
             </div>
           </div>
 
           <div class="input-group-message">
             <label for="message">Your Message</label>
-            <textarea id="message" class="contact-input-message"></textarea>
+            <textarea
+              id="message"
+              class="contact-input-message"
+              maxlength="1000"
+            ></textarea>
+            <p class="error-message">Your Message is required</p>
           </div>
 
           <div class="contact-privacy">

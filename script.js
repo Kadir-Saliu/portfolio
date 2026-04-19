@@ -181,3 +181,80 @@ links.forEach((link) => {
     link.classList.add("active");
   });
 });
+
+function initContactValidation() {
+  const nameField = document.getElementById("name");
+  const emailField = document.getElementById("email");
+  const messageField = document.getElementById("message");
+  const privacyCheckbox = document.getElementById("privacy");
+  const submitBtn = document.querySelector(".contact-submit");
+
+  const fields = [nameField, emailField, messageField];
+
+  fields.forEach((field) => {
+    field.addEventListener("blur", () => validateField(field));
+  });
+
+  privacyCheckbox.addEventListener("change", validateForm);
+
+  function validateField(field) {
+    const error = field.parentElement.querySelector(".error-message");
+
+    // Leeres Feld
+    if (field.value.trim() === "") {
+      field.classList.add("error");
+      if (error) {
+        error.textContent = `${field.labels[0].innerText} is required`;
+        error.style.display = "block";
+      }
+      validateForm();
+      return false;
+    }
+
+    // Email extra prüfen
+    if (field.id === "email") {
+      const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value);
+      if (!emailValid) {
+        field.classList.add("error");
+        if (error) {
+          error.textContent = "Please enter a valid email";
+          error.style.display = "block";
+        }
+        validateForm();
+        return false;
+      }
+    }
+
+    // Alles korrekt
+    field.classList.remove("error");
+    if (error) error.style.display = "none";
+
+    validateForm();
+    return true;
+  }
+
+  function validateForm() {
+    const allValid =
+      nameField.value.trim() !== "" &&
+      /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailField.value) &&
+      messageField.value.trim() !== "" &&
+      privacyCheckbox.checked;
+
+    submitBtn.disabled = !allValid;
+
+    if (allValid) {
+      submitBtn.style.color = "white";
+      submitBtn.style.borderColor = "rgb(137, 188, 217)";
+      submitBtn.style.cursor = "pointer";
+    } else {
+      submitBtn.style.color = "grey";
+      submitBtn.style.borderColor = "grey";
+      submitBtn.style.cursor = "not-allowed";
+    }
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  initProjects();
+  initContactValidation();
+});
