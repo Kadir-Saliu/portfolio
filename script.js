@@ -258,3 +258,37 @@ document.addEventListener("DOMContentLoaded", () => {
   initProjects();
   initContactValidation();
 });
+
+const burgerMenu = document.getElementById("burgerMenu");
+const mobileOverlay = document.querySelector(".mobile-menu-shape");
+
+// Menü öffnen/schließen über Burger-Icon
+burgerMenu.addEventListener("click", () => {
+  mobileOverlay.classList.toggle("d_none");
+
+  setTimeout(() => {
+    mobileOverlay.classList.toggle("open");
+  }, 10);
+});
+
+// Menü schließen, wenn man außerhalb klickt
+mobileOverlay.addEventListener("click", (e) => {
+  if (e.target === mobileOverlay) {
+    mobileOverlay.classList.remove("open");
+
+    setTimeout(() => {
+      mobileOverlay.classList.add("d_none");
+    }, 300);
+  }
+});
+
+// Menü schließen, wenn man auf einen Link klickt
+document.querySelectorAll(".mobile-menu-links a").forEach((link) => {
+  link.addEventListener("click", () => {
+    mobileOverlay.classList.remove("open");
+
+    setTimeout(() => {
+      mobileOverlay.classList.add("d_none");
+    }, 300);
+  });
+});
