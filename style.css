@@ -36,6 +36,10 @@
   src: url(./assets/fonts/Imperial_Script/ImperialScript-Regular.ttf);
 }
 
+.d_none {
+  display: none;
+}
+
 body {
   background-color: rgb(38, 46, 52);
   font-family: "Anta";
@@ -57,16 +61,14 @@ body {
 .hero {
   display: flex;
   padding-top: 50px;
-  gap: 40px;
 }
 
 .hero-image {
-  width: 50%;
+  flex: 1;
   height: 100%;
 }
 
 .hero-content {
-  width: 50%;
   height: 100%;
   padding-top: 100px;
 }
@@ -174,7 +176,7 @@ body {
 
 /* ---------- NAV ---------- */
 
-nav {
+.nav {
   background-color: rgb(137, 188, 217);
   height: 100px;
   width: 100%;
@@ -730,7 +732,7 @@ nav h2 {
 
 .error-message {
   display: none;
-  color: rgb(255, 120, 120) !important; 
+  color: rgb(255, 120, 120) !important;
   font-size: 14px;
   margin-top: 5px;
 }
@@ -869,4 +871,51 @@ footer h2 {
 
 .icon-linkedin:hover .linkedin-img {
   content: url("./assets/img/icons/linked-hover-footer.png");
+}
+
+@media (max-width: 1120px) {
+  .hero {
+    flex-direction: column;
+  }
+
+  .personal-social-media {
+    display: none;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .bg-shape-background {
+    display: none;
+  }
+
+  .hero-image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .personal-photo-responsiv {
+    display: flex;
+    max-height: 500px;
+    max-width: 500px;
+    object-fit: cover;
+    align-self: center;
+  }
+
+  .nav-responsiv{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px;
+  }
+
+  .nav-responsiv p {
+    color: rgb(248, 245, 236);
+  }
+
+  .nav-responsiv span{
+    color: rgb(137, 188, 217);
+  }
 }
