@@ -160,6 +160,15 @@ body {
   padding-top: 150px;
 }
 
+.arrow-img {
+  transition: opacity 0.2s ease;
+}
+
+.arrow-img:hover  {
+  content: url("./assets/img/icons/arrow-down-hover.png");
+  height: 100%;
+}
+
 .logo-name {
   display: flex;
   flex-direction: column;

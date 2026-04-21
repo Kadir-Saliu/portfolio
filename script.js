@@ -1,4 +1,11 @@
-document.addEventListener("DOMContentLoaded", initProjects);
+document.addEventListener("DOMContentLoaded", init);
+
+function init() {
+  initProjects();
+  initContactValidation();
+  initMobileMenu();
+  initNavActive();
+}
 
 /**
  * Initializes project logic and event listeners.
@@ -173,14 +180,18 @@ fetch("./contact_form_mail.php", {
   .then(console.log)
   .catch(console.error);
 
-const links = document.querySelectorAll(".nav-link");
+function initNavActive() {
+  const navigationLinks = document.querySelectorAll(".nav-link");
 
-links.forEach((link) => {
-  link.addEventListener("click", () => {
-    links.forEach((l) => l.classList.remove("active"));
-    link.classList.add("active");
+  navigationLinks.forEach((navigationLink) => {
+    navigationLink.addEventListener("click", () => {
+      navigationLinks.forEach((linkElement) => {
+        linkElement.classList.remove("active");
+      });
+      navigationLink.classList.add("active");
+    });
   });
-});
+}
 
 function initContactValidation() {
   const nameField = document.getElementById("name");
@@ -253,11 +264,6 @@ function initContactValidation() {
     }
   }
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-  initProjects();
-  initContactValidation();
-});
 
 const burgerMenu = document.getElementById("burgerMenu");
 const mobileOverlay = document.querySelector(".mobile-menu-shape");
