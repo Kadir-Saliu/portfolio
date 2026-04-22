@@ -164,7 +164,7 @@ body {
   transition: opacity 0.2s ease;
 }
 
-.arrow-img:hover  {
+.arrow-img:hover {
   content: url("./assets/img/icons/arrow-down-hover.png");
   height: 100%;
 }
@@ -935,6 +935,12 @@ footer h2 {
 @media (max-width: 1120px) {
   .hero {
     flex-direction: column;
+    text-align: center;
+    padding-top: 20px;
+  }
+
+  .hero-content {
+    padding-top: 0px;
   }
 
   .personal-social-media {
@@ -945,8 +951,24 @@ footer h2 {
     display: none;
   }
 
+  .logo-title {
+    font-size: 36px; /* Mobile Größe */
+  }
+
+  .nav-responsiv p {
+    font-size: 16px;
+  }
+
+  .nav-responsiv span {
+    font-size: 14px;
+  }
+
   .bg-shape-background {
     display: none;
+  }
+
+  .hero-arrow-down {
+    padding-top: 20px;
   }
 
   .hero-image {
@@ -970,11 +992,118 @@ footer h2 {
     padding: 20px;
   }
 
+  .nav-responsiv img {
+    cursor: pointer;
+  }
+
   .nav-responsiv p {
     color: rgb(248, 245, 236);
   }
 
   .nav-responsiv span {
     color: rgb(137, 188, 217);
+  }
+
+  .why-me-content {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .why-me-answer {
+    text-align: center;
+  }
+
+  .why-me-cta {
+    display: none;
+  }
+
+  .bg-location img:nth-child(2) {
+    display: none;
+  }
+
+  .skill-container{
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .skill-icons img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .to-learn-skills{
+    display: flex;
+
+  }
+}
+
+@media (max-width: 900px) {
+  .why-me-title {
+    font-size: 48px;
+    text-align: center;
+  }
+
+  .why-me-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .why-me-location {
+    gap: 10px;
+    font-size: 24px;
+  }
+
+  .bg-location {
+    width: 50px;
+    height: 50px;
+  }
+
+  .why-me-text {
+    max-width: 90%;
+  }
+
+  .why-me-cta {
+    align-self: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .personal-photo-responsiv {
+    max-width: 70%;
+  }
+
+  .hero-title-main {
+    font-size: 36px;
+  }
+
+  .hero-subtitle {
+    font-size: 18px;
+    letter-spacing: 2px;
+  }
+
+  .arrow-img {
+    width: 28px;
+  }
+
+  .why-me-title {
+    font-size: 38px;
+  }
+
+  .why-me-location {
+    font-size: 20px;
+  }
+
+  .bg-location {
+    width: 40px;
+    height: 40px;
+  }
+
+  .why-me-answer {
+    font-size: 16px;
+    line-height: 1.4;
   }
 }
