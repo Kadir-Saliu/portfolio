@@ -7,27 +7,48 @@ function init() {
   initNavActive();
 }
 
-/**
- * Initializes project logic and event listeners.
- */
+/* ------------------------------------------------ */
+/* PROJECTS – DESKTOP + MOBILE                      */
+/* ------------------------------------------------ */
+
 function initProjects() {
-  const buttons = document.querySelectorAll(".projects-selector-btn");
+  const desktopButtons = document.querySelectorAll(".projects-selector-btn");
+  const mobileButtons = document.querySelectorAll(".projects-mobile-btn");
+
   const elements = getDomElements();
   const projects = getProjects();
+  const projectKeys = Object.keys(projects);
 
-  buttons.forEach((btn) => {
+  /* DESKTOP BUTTONS */
+  desktopButtons.forEach((btn, index) => {
     btn.addEventListener("click", () => {
       const key = btn.dataset.project;
       const project = projects[key];
-      updateActiveButton(buttons, btn);
+
+      updateActiveButton(desktopButtons, btn);
+      updateActiveButton(mobileButtons, mobileButtons[index]);
+
       renderProjectContent(elements, project);
+      renderMobileProject(project);
+    });
+  });
+
+  /* MOBILE BUTTONS */
+  mobileButtons.forEach((btn, index) => {
+    btn.addEventListener("click", () => {
+      const key = projectKeys[index];
+      const project = projects[key];
+
+      updateActiveButton(mobileButtons, btn);
+      updateActiveButton(desktopButtons, desktopButtons[index]);
+
+      renderProjectContent(elements, project);
+      renderMobileProject(project);
     });
   });
 }
 
-/**
- * Returns all required DOM elements.
- */
+/* DOM ELEMENTS FOR DESKTOP */
 function getDomElements() {
   return {
     projectContent: document.querySelector(".project-content"),
@@ -38,17 +59,13 @@ function getDomElements() {
   };
 }
 
-/**
- * Updates the active button state.
- */
+/* ACTIVE BUTTON HANDLING */
 function updateActiveButton(buttons, activeBtn) {
   buttons.forEach((b) => b.classList.remove("active"));
   activeBtn.classList.add("active");
 }
 
-/**
- * Renders all project content into the DOM.
- */
+/* DESKTOP CONTENT RENDERING */
 function renderProjectContent(elements, project) {
   elements.projectContent.innerHTML = renderSections(project.sections);
   elements.techIcons.innerHTML = renderTechIcons(project.tech);
@@ -56,9 +73,7 @@ function renderProjectContent(elements, project) {
   updateButtons(elements, project);
 }
 
-/**
- * Builds the HTML for all project sections.
- */
+/* DESKTOP SECTIONS */
 function renderSections(sections) {
   return sections
     .map(
@@ -74,32 +89,106 @@ function renderSections(sections) {
     .join("");
 }
 
-/**
- * Builds the HTML for technology icons.
- */
+/* DESKTOP TECH ICONS */
 function renderTechIcons(icons) {
   return icons.map((src) => `<img class="tech-icon" src="${src}" />`).join("");
 }
 
-/**
- * Shows or hides buttons and updates links.
- */
+/* DESKTOP BUTTONS */
 function updateButtons(elements, project) {
   const hasLinks = project.live && project.git;
   elements.liveBtn.style.display = hasLinks ? "inline-flex" : "none";
   elements.gitBtn.style.display = hasLinks ? "inline-flex" : "none";
+
   if (hasLinks) {
     elements.liveBtn.href = project.live;
     elements.gitBtn.href = project.git;
   }
 }
 
-/**
- * Returns all project data.
- */
+/* ------------------------------------------------ */
+/* MOBILE PROJECT RENDERING                         */
+/* ------------------------------------------------ */
+
+function renderMobileProject(project) {
+  /* TITLE */
+  document.querySelector(".project-mobile-title").textContent =
+    project.title || detectProjectTitle(project);
+
+  /* IMAGE */
+  document.querySelector(".project-mobile-img").src = project.img;
+
+  /* TECHNOLOGIES */
+  const techContainer = document.querySelector(".project-mobile-tech");
+  techContainer.innerHTML = project.tech
+    .map((src) => `<span>${extractTechName(src)}</span>`)
+    .join("");
+
+  /* SECTIONS */
+  const mobileContent = document.querySelector(".project-mobile-content");
+  mobileContent.innerHTML = project.sections
+    .map(
+      (sec) => `
+      <section class="project-section">
+        <img class="project-bullet" src="./assets/img/icons/bullet-icon.png" alt="" />
+        <div class="project-text">
+          <h3 class="project-heading">${sec.title}</h3>
+          <p class="project-description">${sec.text}</p>
+        </div>
+      </section>`,
+    )
+    .join("");
+
+  /* BUTTONS */
+  const liveBtn = document.querySelector(
+    ".project-mobile-links .project-btn-live",
+  );
+  const gitBtn = document.querySelector(
+    ".project-mobile-links .project-btn-git",
+  );
+
+  if (project.live) {
+    liveBtn.style.display = "inline-flex";
+    liveBtn.href = project.live;
+  } else {
+    liveBtn.style.display = "none";
+  }
+
+  if (project.git) {
+    gitBtn.style.display = "inline-flex";
+    gitBtn.href = project.git;
+  } else {
+    gitBtn.style.display = "none";
+  }
+}
+
+/* Extract readable tech name */
+function extractTechName(src) {
+  src = src.toLowerCase();
+  if (src.includes("html")) return "HTML";
+  if (src.includes("css")) return "CSS";
+  if (src.includes("js")) return "JavaScript";
+  if (src.includes("firebase")) return "Firebase";
+  if (src.includes("angular")) return "Angular";
+  if (src.includes("ts")) return "TypeScript";
+  return "Tech";
+}
+
+/* Detect project title */
+function detectProjectTitle(project) {
+  if (project.img.includes("pollo")) return "El Pollo Loco";
+  if (project.img.includes("join")) return "Join";
+  return "Ongoing Project";
+}
+
+/* ------------------------------------------------ */
+/* PROJECT DATA                                     */
+/* ------------------------------------------------ */
+
 function getProjects() {
   return {
     "el-pollo-loco": {
+      title: "El Pollo Loco",
       sections: [
         {
           title: "About the Project",
@@ -107,7 +196,7 @@ function getProjects() {
         },
         {
           title: "How I have organised my work process",
-          text: " How do you keep your code clean and maintainable? Have you broken the project down into reusable modules? Focus on documentation, naming files, variables, classes and testing.",
+          text: "How do you keep your code clean and maintainable? Have you broken the project down into reusable modules? Focus on documentation, naming files, variables, classes and testing.",
         },
         {
           title: "What I have learned",
@@ -125,6 +214,7 @@ function getProjects() {
     },
 
     join: {
+      title: "Join",
       sections: [
         {
           title: "About the Project",
@@ -151,6 +241,7 @@ function getProjects() {
     },
 
     "ongoing-project": {
+      title: "Ongoing Project",
       sections: [
         {
           title: "About the project",
@@ -167,31 +258,9 @@ function getProjects() {
   };
 }
 
-fetch("./contact_form_mail.php", {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify({
-    name: "Test",
-    email: "test@example.com",
-    message: "Hallo",
-  }),
-})
-  .then(async (r) => ({ status: r.status, body: await r.text() }))
-  .then(console.log)
-  .catch(console.error);
-
-function initNavActive() {
-  const navigationLinks = document.querySelectorAll(".nav-link");
-
-  navigationLinks.forEach((navigationLink) => {
-    navigationLink.addEventListener("click", () => {
-      navigationLinks.forEach((linkElement) => {
-        linkElement.classList.remove("active");
-      });
-      navigationLink.classList.add("active");
-    });
-  });
-}
+/* ------------------------------------------------ */
+/* CONTACT FORM VALIDATION                          */
+/* ------------------------------------------------ */
 
 function initContactValidation() {
   const nameField = document.getElementById("name");
@@ -211,7 +280,6 @@ function initContactValidation() {
   function validateField(field) {
     const error = field.parentElement.querySelector(".error-message");
 
-    // Leeres Feld
     if (field.value.trim() === "") {
       field.classList.add("error");
       if (error) {
@@ -222,7 +290,6 @@ function initContactValidation() {
       return false;
     }
 
-    // Email extra prüfen
     if (field.id === "email") {
       const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value);
       if (!emailValid) {
@@ -236,7 +303,6 @@ function initContactValidation() {
       }
     }
 
-    // Alles korrekt
     field.classList.remove("error");
     if (error) error.style.display = "none";
 
@@ -265,36 +331,56 @@ function initContactValidation() {
   }
 }
 
+/* ------------------------------------------------ */
+/* MOBILE MENU                                      */
+/* ------------------------------------------------ */
+
 const burgerMenu = document.getElementById("burgerMenu");
 const mobileOverlay = document.querySelector(".mobile-menu-shape");
 
-// Menü öffnen/schließen über Burger-Icon
-burgerMenu.addEventListener("click", () => {
-  mobileOverlay.classList.toggle("d_none");
-
-  setTimeout(() => {
-    mobileOverlay.classList.toggle("open");
-  }, 10);
-});
-
-// Menü schließen, wenn man außerhalb klickt
-mobileOverlay.addEventListener("click", (e) => {
-  if (e.target === mobileOverlay) {
-    mobileOverlay.classList.remove("open");
+function initMobileMenu() {
+  burgerMenu.addEventListener("click", () => {
+    mobileOverlay.classList.toggle("d_none");
 
     setTimeout(() => {
-      mobileOverlay.classList.add("d_none");
-    }, 300);
-  }
-});
-
-// Menü schließen, wenn man auf einen Link klickt
-document.querySelectorAll(".mobile-menu-links a").forEach((link) => {
-  link.addEventListener("click", () => {
-    mobileOverlay.classList.remove("open");
-
-    setTimeout(() => {
-      mobileOverlay.classList.add("d_none");
-    }, 300);
+      mobileOverlay.classList.toggle("open");
+    }, 10);
   });
-});
+
+  mobileOverlay.addEventListener("click", (e) => {
+    if (e.target === mobileOverlay) {
+      mobileOverlay.classList.remove("open");
+
+      setTimeout(() => {
+        mobileOverlay.classList.add("d_none");
+      }, 300);
+    }
+  });
+
+  document.querySelectorAll(".mobile-menu-links a").forEach((link) => {
+    link.addEventListener("click", () => {
+      mobileOverlay.classList.remove("open");
+
+      setTimeout(() => {
+        mobileOverlay.classList.add("d_none");
+      }, 300);
+    });
+  });
+}
+
+/* ------------------------------------------------ */
+/* NAV ACTIVE                                        */
+/* ------------------------------------------------ */
+
+function initNavActive() {
+  const navigationLinks = document.querySelectorAll(".nav-link");
+
+  navigationLinks.forEach((navigationLink) => {
+    navigationLink.addEventListener("click", () => {
+      navigationLinks.forEach((linkElement) => {
+        linkElement.classList.remove("active");
+      });
+      navigationLink.classList.add("active");
+    });
+  });
+}

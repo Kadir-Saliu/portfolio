@@ -100,7 +100,10 @@
 
           <div class="hero-arrow-down">
             <a href=""
-              ><img class="arrow-img" src="./assets/img/icons/arrow-down.png" alt=""
+              ><img
+                class="arrow-img"
+                src="./assets/img/icons/arrow-down.png"
+                alt=""
             /></a>
           </div>
         </div>
@@ -181,7 +184,7 @@
             <img src="./assets/img/icons/scrum-icon.png" alt="Scrum" />
           </div>
 
-          <div class="to-learn-skills">
+          <aside class="to-learn-skills">
             <span class="learn-title">I’m currently learning</span>
             <div>
               <img src="./assets/img/icons/tech-icons/react.png" alt="" />
@@ -193,14 +196,33 @@
               implement innovative solutions and <br />
               stay abreast of new technologies.
             </span>
+          </aside>
+
+          <div class="to-learn-skills-responsiv d_none">
+            <span class="learn-title-responsiv"
+              >What I am currently learning
+            </span>
+            <div class="learn-text-responsiv">
+              <span>
+                Show that you are motivated to <br />
+                continually improve your skills, <br />
+                implement innovative solutions and <br />
+                stay abreast of new technologies.
+              </span>
+              <img
+                src="./assets/img/icons/to-learn-skills-responsiv.png"
+                alt=""
+              />
+            </div>
           </div>
+          <a href="#contact" class="to-learn-cta d_none">Let’s talk</a>
         </div>
       </section>
     </div>
 
     <section id="projects" class="projects">
       <div class="content">
-        <h2 class="projects-title">My Projects</h2>
+        <h2 class="projects-title desktop-title">My Projects</h2>
 
         <div class="projects-layout">
           <!-- Navigation -->
@@ -208,15 +230,23 @@
             <button
               class="projects-selector-btn active"
               data-project="el-pollo-loco"
+              data-project-number="1. Project"
             >
               1. El Pollo Loco
             </button>
-            <button class="projects-selector-btn" data-project="join">
+
+            <button
+              class="projects-selector-btn"
+              data-project="join"
+              data-project-number="2. Project"
+            >
               2. Join
             </button>
+
             <button
               class="projects-selector-btn"
               data-project="ongoing-project"
+              data-project-number="3. Project"
             >
               3. Ongoing Project
             </button>
@@ -303,6 +333,10 @@
                   src="./assets/img/icons/tech-icons/css-project-icon.png"
                   alt="CSS"
                 />
+
+                <span class="tech-text html-text d_none">HTML</span>
+                <span class="tech-text js-text d_none">JavaScript</span>
+                <span class="tech-text css-text d_none">CSS</span>
               </div>
 
               <img
@@ -327,6 +361,87 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MOBILE VERSION OF PROJECTS -->
+    <!-- MOBILE VERSION OF PROJECTS -->
+    <!-- MOBILE NAVIGATOR (steht ÜBER der Section, wie Desktop) -->
+    <h2 class="projects-title mobile-title">My Projects</h2>
+    <div class="projects-mobile-selector">
+      <button class="projects-mobile-btn active">1. Project</button>
+      <button class="projects-mobile-btn">2. Project</button>
+      <button class="projects-mobile-btn">3. Project</button>
+    </div>
+
+    <!-- MOBILE VERSION OF PROJECTS -->
+    <section class="projects-mobile">
+      <div class="content">
+        <h3 class="project-mobile-title">El Pollo Loco</h3>
+
+        <div class="project-mobile-tech">
+          <span class="project-mobile-tech-title">Technologies :</span>
+          <span>HTML</span>
+          <span>CSS</span>
+          <span>JavaScript</span>
+        </div>
+
+        <img
+          class="project-mobile-img"
+          src="./assets/img/project-img/el-pollo-loco-2 (1).png"
+          alt="El Pollo Loco project screenshot"
+        />
+
+        <article class="project-mobile-content">
+          <section class="project-section">
+            <img
+              class="project-bullet"
+              src="./assets/img/icons/bullet-icon.png"
+              alt=""
+            />
+            <div class="project-text">
+              <h3 class="project-heading">About the Project</h3>
+              <p class="project-description">
+                A simple Jump-and-Run game based on an object-oriented approach.
+              </p>
+            </div>
+          </section>
+
+          <section class="project-section">
+            <img
+              class="project-bullet"
+              src="./assets/img/icons/bullet-icon.png"
+              alt=""
+            />
+            <div class="project-text">
+              <h3 class="project-heading">
+                How I have organised my work process
+              </h3>
+              <p class="project-description">
+                Clean code, reusable modules, documentation, naming conventions.
+              </p>
+            </div>
+          </section>
+
+          <section class="project-section">
+            <img
+              class="project-bullet"
+              src="./assets/img/icons/bullet-icon.png"
+              alt=""
+            />
+            <div class="project-text">
+              <h3 class="project-heading">What I have learned</h3>
+              <p class="project-description">
+                Deep dive into JavaScript, OOP, structuring larger projects.
+              </p>
+            </div>
+          </section>
+        </article>
+
+        <div class="project-mobile-links">
+          <a class="project-btn-live" href="#">Live Test</a>
+          <a class="project-btn-git" href="#">Github</a>
         </div>
       </div>
     </section>
