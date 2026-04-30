@@ -55,6 +55,14 @@ body {
   padding: 0 20px;
 }
 
+.content-contact {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+}
+
 /* ---------- HERO ---------- */
 
 .hero {
@@ -607,10 +615,6 @@ nav h2 {
   width: 50%;
 }
 
-/* --- Container --- */
-/* Container */
-/* Container */
-/* --- Contact Info Container --- */
 .contact-info {
   width: 50%;
   display: flex;
@@ -620,7 +624,6 @@ nav h2 {
   gap: 10px;
 }
 
-/* --- Link (Text + Icon) --- */
 .contact-info-item {
   display: flex;
   align-items: center;
@@ -823,6 +826,14 @@ nav h2 {
 .privacy-policy {
   color: rgb(137, 188, 217);
   text-decoration: none;
+}
+
+.arrow-up {
+  padding-top: 30px;
+}
+
+.arrow-up:hover {
+  content: url(./assets/img/icons/arrow-up-hover.png);
 }
 
 footer {
@@ -1266,7 +1277,7 @@ footer h2 {
     flex-direction: column;
   }
 
-  .accent-text{
+  .accent-text {
     display: block;
     align-self: center;
     font-size: 20px;
@@ -1285,12 +1296,12 @@ footer h2 {
     flex-shrink: 0;
   }
 
-  .mobile-arrow-up{
+  .mobile-arrow-up {
     display: flex;
     padding-top: 30px;
   }
 
-  .arrow-img{
+  .arrow-img {
     content: url(./assets/img/icons/arrow-down-hover.png);
   }
 }
@@ -1393,6 +1404,7 @@ footer h2 {
   .hero-subtitle {
     font-size: 18px;
     letter-spacing: 2px;
+    padding-top: 10px;
   }
 
   .arrow-img {
@@ -1483,10 +1495,10 @@ footer h2 {
   .mobile-menu-shape {
     justify-content: center;
   }
-} 
+}
 
 @media (max-width: 400px) {
- .contact-heading{
-  font-size: 32px;
- }
+  .contact-heading {
+    font-size: 32px;
+  }
 }
