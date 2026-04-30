@@ -20,13 +20,16 @@
 
       <div class="mobile-menu-shape d_none">
         <ul class="mobile-menu-links">
-          <li><a href="#why-me">Why me</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#why-me" data-i18n="navWhyMe">Why me</a></li>
+          <li><a href="#skills" data-i18n="navSkills">Skills</a></li>
+          <li><a href="#projects" data-i18n="navProjects">Projects</a></li>
+          <li><a href="#contact" data-i18n="navContact">Contact</a></li>
         </ul>
 
-        <div class="mobile-lang"><span>DE</span> | <span>EN</span></div>
+        <div class="mobile-lang">
+          <a href="#" class="nav-lang-option active">DE</a> |
+          <a href="#" class="nav-lang-option">EN</a>
+        </div>
       </div>
 
       <section id="hero" class="hero">
@@ -93,18 +96,22 @@
               </a>
             </div>
           </div>
+
           <div class="hero-title">
             <h1 class="hero-title-main">Kadir Saliu</h1>
-            <h2 class="hero-subtitle">FRONTEND DEVELOPER</h2>
+            <h2 class="hero-subtitle" data-i18n="heroSubtitle">
+              FRONTEND DEVELOPER
+            </h2>
           </div>
 
           <div class="hero-arrow-down">
-            <a href="#why-me"
-              ><img
+            <a href="#why-me">
+              <img
                 class="arrow-img"
                 src="./assets/img/icons/arrow-down.png"
                 alt=""
-            /></a>
+              />
+            </a>
           </div>
         </div>
       </section>
@@ -120,10 +127,14 @@
           </div>
 
           <div class="nav-links">
-            <a href="#why-me" class="nav-link">Why me</a>
-            <a href="#skills" class="nav-link">Skills</a>
-            <a href="#projects" class="nav-link">Projects</a>
-            <a href="#contact" class="nav-link">Contact</a>
+            <a href="#why-me" class="nav-link" data-i18n="navWhyMe">Why me</a>
+            <a href="#skills" class="nav-link" data-i18n="navSkills">Skills</a>
+            <a href="#projects" class="nav-link" data-i18n="navProjects"
+              >Projects</a
+            >
+            <a href="#contact" class="nav-link" data-i18n="navContact"
+              >Contact</a
+            >
           </div>
 
           <div class="nav-lang">
@@ -136,7 +147,7 @@
 
     <div class="content">
       <section id="why-me" class="why-me">
-        <h2 class="why-me-title">Why me</h2>
+        <h2 class="why-me-title" data-i18n="whyMeTitle">Why me</h2>
 
         <div class="why-me-content">
           <div class="why-me-location">
@@ -146,13 +157,17 @@
             </div>
 
             <p>
-              <span style="color: rgb(137, 188, 217)">I am</span> located in
-              Nuremberg..|
+              <span
+                style="color: rgb(137, 188, 217)"
+                data-i18n="whyMeLocationSpan"
+                >I am</span
+              >
+              <span data-i18n="whyMeLocation">located in Nuremberg..|</span>
             </p>
           </div>
 
           <div class="why-me-text">
-            <p class="why-me-answer">
+            <p class="why-me-answer" data-i18n="whyMeAnswer">
               Why are you passionate about coding?<br />
               You can include some key traits like analytical <br />
               thinking, creativity, persistence and <br />
@@ -162,13 +177,15 @@
           </div>
         </div>
 
-        <a href="#contact" class="why-me-cta">Let’s talk</a>
+        <a href="#contact" class="why-me-cta" data-i18n="whyMeCTA"
+          >Let’s talk</a
+        >
       </section>
     </div>
 
     <div class="content">
       <section id="skills" class="my-skills">
-        <h2 class="skill-title">My Skills</h2>
+        <h2 class="skill-title" data-i18n="skillsTitle">My Skills</h2>
 
         <div class="skill-container">
           <div class="skill-icons">
@@ -188,12 +205,14 @@
           </div>
 
           <aside class="to-learn-skills">
-            <span class="learn-title">I’m currently learning</span>
+            <span class="learn-title" data-i18n="skillsLearningTitle">
+              I’m currently learning
+            </span>
             <div>
               <img src="./assets/img/icons/tech-icons/react.png" alt="" />
               <img src="./assets/img/icons/tech-icons/vue.png" alt="" />
             </div>
-            <span class="learn-text">
+            <span class="learn-text" data-i18n="skillsLearningText">
               Show that you are motivated to <br />
               continually improve your skills, <br />
               implement innovative solutions and <br />
@@ -202,11 +221,14 @@
           </aside>
 
           <div class="to-learn-skills-responsiv d_none">
-            <span class="learn-title-responsiv"
-              >What I am currently learning
+            <span
+              class="learn-title-responsiv"
+              data-i18n="skillsLearningTitleMobile"
+            >
+              What I am currently learning
             </span>
             <div class="learn-text-responsiv">
-              <span>
+              <span data-i18n="skillsLearningTextMobile">
                 Show that you are motivated to <br />
                 continually improve your skills, <br />
                 implement innovative solutions and <br />
@@ -218,22 +240,27 @@
               />
             </div>
           </div>
-          <a href="#contact" class="to-learn-cta d_none">Let’s talk</a>
+
+          <a href="#contact" class="to-learn-cta d_none" data-i18n="skillsCTA">
+            Let’s talk
+          </a>
         </div>
       </section>
     </div>
 
     <section id="projects" class="projects">
       <div class="content">
-        <h2 class="projects-title desktop-title">My Projects</h2>
+        <h2 class="projects-title desktop-title" data-i18n="projectsTitle">
+          My Projects
+        </h2>
 
         <div class="projects-layout">
-          <!-- Navigation -->
           <div class="projects-selector">
             <button
               class="projects-selector-btn active"
               data-project="el-pollo-loco"
               data-project-number="1. Project"
+              data-i18n="project1"
             >
               1. El Pollo Loco
             </button>
@@ -242,6 +269,7 @@
               class="projects-selector-btn"
               data-project="join"
               data-project-number="2. Project"
+              data-i18n="project2"
             >
               2. Join
             </button>
@@ -250,6 +278,7 @@
               class="projects-selector-btn"
               data-project="ongoing-project"
               data-project-number="3. Project"
+              data-i18n="project3"
             >
               3. Ongoing Project
             </button>
@@ -260,8 +289,8 @@
       <div class="projects-viewport-container">
         <div class="content">
           <div class="projects-viewport">
-            <!-- Project Content -->
             <article class="project-content">
+              <!-- ABOUT -->
               <section class="project-section">
                 <img
                   class="project-bullet"
@@ -270,15 +299,22 @@
                   aria-hidden="true"
                 />
                 <div class="project-text">
-                  <h3 class="project-heading">About the Project</h3>
-                  <p class="project-description">
-                    A simple Jump-and-Run game based on an object-oriented
-                    approach. Help El Pollo Loco to find coins and poison
-                    bottles to fight against the killer whale.
+                  <h3
+                    class="project-heading about-heading"
+                    data-i18n="polloAbout"
+                  >
+                    About the Project
+                  </h3>
+                  <p
+                    class="project-description about-text"
+                    data-i18n="polloAboutText"
+                  >
+                    Placeholder
                   </p>
                 </div>
               </section>
 
+              <!-- PROCESS -->
               <section class="project-section">
                 <img
                   class="project-bullet"
@@ -287,17 +323,22 @@
                   aria-hidden="true"
                 />
                 <div class="project-text">
-                  <h3 class="project-heading">
+                  <h3
+                    class="project-heading process-heading"
+                    data-i18n="polloProcess"
+                  >
                     How I have organised my work process
                   </h3>
-                  <p class="project-description">
-                    How do you keep your code clean and maintainable? Have you
-                    broken the project down into reusable modules? Focus on
-                    documentation, naming files, variables, classes and testing.
+                  <p
+                    class="project-description process-text"
+                    data-i18n="polloProcessText"
+                  >
+                    Placeholder
                   </p>
                 </div>
               </section>
 
+              <!-- LEARNED -->
               <section class="project-section">
                 <img
                   class="project-bullet"
@@ -306,19 +347,26 @@
                   aria-hidden="true"
                 />
                 <div class="project-text">
-                  <h3 class="project-heading">What I have learned</h3>
-                  <p class="project-description">
-                    As someone who is always trying to learn new technologies,
-                    you may have enjoyed working on this project because it
-                    allowed you to delve deep into a particular technology.
+                  <h3
+                    class="project-heading learned-heading"
+                    data-i18n="polloLearned"
+                  >
+                    What I have learned
+                  </h3>
+                  <p
+                    class="project-description learned-text"
+                    data-i18n="polloLearnedText"
+                  >
+                    Placeholder
                   </p>
                 </div>
               </section>
             </article>
 
-            <!-- Project Preview -->
             <div class="project-preview">
-              <span class="tech-title">Technologies</span>
+              <span class="tech-title" data-i18n="projectTechTitle"
+                >Technologies</span
+              >
 
               <div class="project-icon">
                 <img
@@ -352,12 +400,14 @@
                 <a
                   class="project-btn-live"
                   href="https://kadir-saliu.developerakademie.net/el_pollo_loco/index.html"
+                  data-i18n="projectLive"
                 >
                   Live Test
                 </a>
                 <a
                   class="project-btn-git"
                   href="https://github.com/Kadir-Saliu"
+                  data-i18n="projectGithub"
                 >
                   Github
                 </a>
@@ -368,17 +418,29 @@
       </div>
     </section>
 
-    <h2 class="projects-title mobile-title">My Projects</h2>
+    <h2 class="projects-title mobile-title" data-i18n="projectsTitle">
+      My Projects
+    </h2>
+
     <div class="projects-mobile-selector">
-      <button class="projects-mobile-btn active">1. Project</button>
-      <button class="projects-mobile-btn">2. Project</button>
-      <button class="projects-mobile-btn">3. Project</button>
+      <button class="projects-mobile-btn active" data-i18n="project1">
+        1. Project
+      </button>
+
+      <button class="projects-mobile-btn" data-i18n="project2">
+        2. Project
+      </button>
+
+      <button class="projects-mobile-btn" data-i18n="project3">
+        3. Project
+      </button>
     </div>
 
-    <!-- MOBILE VERSION OF PROJECTS -->
     <section class="projects-mobile">
       <div class="content">
-        <h3 class="project-mobile-title">El Pollo Loco</h3>
+        <h3 class="project-mobile-title" data-i18n="projectMobileTitle">
+          El Pollo Loco
+        </h3>
 
         <div class="project-mobile-tech">
           <span>HTML</span>
@@ -400,8 +462,10 @@
               alt=""
             />
             <div class="project-text">
-              <h3 class="project-heading">About the Project</h3>
-              <p class="project-description">
+              <h3 class="project-heading" data-i18n="projectMobileAbout">
+                About the Project
+              </h3>
+              <p class="project-description" data-i18n="projectMobileAboutText">
                 A simple Jump-and-Run game based on an object-oriented approach.
               </p>
             </div>
@@ -414,10 +478,13 @@
               alt=""
             />
             <div class="project-text">
-              <h3 class="project-heading">
+              <h3 class="project-heading" data-i18n="projectMobileProcess">
                 How I have organised my work process
               </h3>
-              <p class="project-description">
+              <p
+                class="project-description"
+                data-i18n="projectMobileProcessText"
+              >
                 Clean code, reusable modules, documentation, naming conventions.
               </p>
             </div>
@@ -430,8 +497,13 @@
               alt=""
             />
             <div class="project-text">
-              <h3 class="project-heading">What I have learned</h3>
-              <p class="project-description">
+              <h3 class="project-heading" data-i18n="projectMobileLearned">
+                What I have learned
+              </h3>
+              <p
+                class="project-description"
+                data-i18n="projectMobileLearnedText"
+              >
                 Deep dive into JavaScript, OOP, structuring larger projects.
               </p>
             </div>
@@ -439,42 +511,66 @@
         </article>
 
         <div class="project-mobile-links">
-          <a class="project-btn-live" href="#">Live Test</a>
-          <a class="project-btn-git" href="#">Github</a>
+          <a class="project-btn-live" href="#" data-i18n="projectLive"
+            >Live Test</a
+          >
+          <a class="project-btn-git" href="#" data-i18n="projectGithub"
+            >Github</a
+          >
         </div>
       </div>
     </section>
 
     <div class="content">
       <section class="testimonials">
-        <h2 class="testimonials-heading">
+        <h2 class="testimonials-heading" data-i18n="testimonialsHeading">
           Need a teamplayer? Here what my colleagues said about me.
         </h2>
 
-        <h2 class="testimonials-heading-mobile d_none">Need a teamplayer?</h2>
-        <p class="testimonials-description d_none">
+        <h2
+          class="testimonials-heading-mobile d_none"
+          data-i18n="testimonialsHeadingMobile"
+        >
+          Need a teamplayer?
+        </h2>
+
+        <p
+          class="testimonials-description d_none"
+          data-i18n="testimonialsDescriptionMobile"
+        >
           Here's what my colleagues say about me.
         </p>
 
         <div class="testimonials-wrapper">
           <article class="testimonial-card">
             <h3 class="testimonial-name">Daniel Krafzik</h3>
-            <p class="testimonial-project">Project: Join</p>
+
+            <p class="testimonial-project" data-i18n="testimonialProject">
+              Project: Join
+            </p>
+
             <p class="testimonial-text">
               "Kadir ist sehr verantwortungsbewusst und hat während des Joins
               Projekts mit seiner positiven Art die Gruppenarbeit am Leben
-              erhalten. Er ist eine Bereicherung für jedes Team. "
+              erhalten. Er ist eine Bereicherung für jedes Team."
             </p>
+
             <a
               href="https://www.linkedin.com/in/daniel-krafzik-4b7155345/"
               class="testimonial-link"
-              >LinkedIn Profile</a
+              data-i18n="testimonialLink"
             >
+              LinkedIn Profile
+            </a>
           </article>
 
           <article class="testimonial-card">
             <h3 class="testimonial-name">Hussein Iraqi</h3>
-            <p class="testimonial-project">Project: Join</p>
+
+            <p class="testimonial-project" data-i18n="testimonialProject">
+              Project: Join
+            </p>
+
             <p class="testimonial-text">
               "Kadir stellt den Erfolg des Teams immer an erster Stelle. Er ist
               wissbegierig, freundlich und ein absoluter Teamplayer. Kadir ist
@@ -487,18 +583,22 @@
 
     <div class="content-contact">
       <section id="contact" class="contact">
-        <h2 class="contact-heading">Contact me</h2>
+        <h2 class="contact-heading" data-i18n="contactHeading">Contact me</h2>
 
         <div class="contact-content">
           <div class="contact-description">
-            <p>
+            <p data-i18n="contactDescription">
               Encourage people to contact you and describe what role you are
               interested in. Show that you will add value to their projects
               through your work. Example: Feel free to get in touch with job
               offers or opportunities such as:...
             </p>
 
-            <h4 class="accent-text d_none" style="color: rgb(137, 188, 217)">
+            <h4
+              class="accent-text d_none"
+              style="color: rgb(137, 188, 217)"
+              data-i18n="contactAccent"
+            >
               Let us work together!
             </h4>
           </div>
@@ -557,33 +657,43 @@
         <form class="contact-form" action="">
           <div class="contact-form-row">
             <div class="input-group">
-              <label for="name">Your Name</label>
+              <label for="name" data-i18n="contactLabelName">Your Name</label>
               <input id="name" class="contact-input" type="text" />
-              <p class="error-message">Your name is required</p>
+              <p class="error-message" data-i18n="contactErrorName">
+                Your name is required
+              </p>
             </div>
 
             <div class="input-group">
-              <label for="email">Your Email</label>
+              <label for="email" data-i18n="contactLabelEmail"
+                >Your Email</label
+              >
               <input id="email" class="contact-input" type="email" />
-              <p class="error-message">Your email is required</p>
+              <p class="error-message" data-i18n="contactErrorEmail">
+                Your email is required
+              </p>
             </div>
           </div>
 
           <div class="input-group-message">
-            <label for="message">Your Message</label>
+            <label for="message" data-i18n="contactLabelMessage"
+              >Your Message</label
+            >
             <textarea
               id="message"
               class="contact-input-message"
               maxlength="1000"
             ></textarea>
-            <p class="error-message">Your Message is required</p>
+            <p class="error-message" data-i18n="contactErrorMessage">
+              Your Message is required
+            </p>
           </div>
 
           <div class="contact-privacy">
             <label class="checkbox-wrapper">
               <input class="contact-checkbox" type="checkbox" id="privacy" />
               <span class="checkbox-custom"></span>
-              <p class="contact-privacy-text">
+              <p class="contact-privacy-text" data-i18n="contactPrivacy">
                 I've read the
                 <a href="" class="privacy-policy">privacy policy</a>
                 and agree to the processing of my data as outlined.
@@ -591,25 +701,30 @@
             </label>
           </div>
 
-          <button class="contact-submit" disabled>Send</button>
+          <button class="contact-submit" disabled data-i18n="contactSend">
+            Send
+          </button>
         </form>
-        <a href="#hero"
-          ><img
+
+        <a href="#hero">
+          <img
             class="mobile-arrow-up d_none"
             src="./assets/img/icons/arrow-up-hover.png"
             alt="Scroll to Top"
-        /></a>
+          />
+        </a>
       </section>
-      <a href="#hero"
-        ><img class="arrow-up" src="./assets/img/icons/arrow-up.png" alt=""
-      /></a>
+
+      <a href="#hero">
+        <img class="arrow-up" src="./assets/img/icons/arrow-up.png" alt="" />
+      </a>
     </div>
 
     <footer>
       <div class="content">
         <div class="footer-container">
           <div class="footer-legal">
-            <a href="">Legal notice</a>
+            <a href="" data-i18n="footerLegal">Legal notice</a>
             <span>&copy; Kadir Saliu 2026</span>
           </div>
 
@@ -663,5 +778,6 @@
     <script src="./script.js"></script>
     <script src="./js/template.js"></script>
     <script src="./js/projects.js"></script>
+    <script src="./js/language.js"></script>
   </body>
 </html>

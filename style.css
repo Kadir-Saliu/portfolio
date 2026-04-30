@@ -249,6 +249,14 @@ nav h2 {
   color: #fff; /* weiße Schrift */
 }
 
+.nav-lang-option.active {
+  background-image: url("./assets/img/background/nav-bg-shape.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: #fff;
+}
+
 .why-me {
   display: flex;
   flex-direction: column;
@@ -445,6 +453,10 @@ nav h2 {
   display: flex;
   gap: 20px;
   align-items: flex-start;
+}
+
+.project-section:has([data-i18n="empty"]) {
+  display: none;
 }
 
 .project-bullet {
@@ -1303,6 +1315,10 @@ footer h2 {
 
   .arrow-img {
     content: url(./assets/img/icons/arrow-down-hover.png);
+  }
+
+  .arrow-up {
+    display: none;
   }
 }
 
