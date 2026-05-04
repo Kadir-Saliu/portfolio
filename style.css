@@ -1330,10 +1330,12 @@ footer h2 {
   .testimonials-heading-mobile {
     color: rgb(137, 188, 217);
     font-size: 28px;
+    display: block;
   }
   .testimonials-description {
     color: white;
     font-size: 14px;
+    display: block;
   }
 }
 

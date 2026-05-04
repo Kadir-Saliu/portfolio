@@ -60,6 +60,10 @@ const translations = {
     testimonialsHeadingMobile: "Need a teamplayer?",
     testimonialsDescriptionMobile: "Here's what my colleagues say about me.",
     testimonialProject: "Project: Join",
+    testimonialDanielText:
+      '"Kadir is very responsible and kept the team collaboration alive during the Join project with his positive attitude. He is an asset to every team."',
+    testimonialHusseinText:
+      '"Kadir always puts the team’s success first. He is eager to learn, friendly, and an absolute team player. Kadir is definitely an asset to every team."',
     testimonialLink: "LinkedIn Profile",
 
     contactHeading: "Contact me",
@@ -167,6 +171,10 @@ const translations = {
     testimonialsHeadingMobile: "Du brauchst einen Teamplayer?",
     testimonialsDescriptionMobile: "Das sagen meine Kollegen über mich.",
     testimonialProject: "Projekt: Join",
+    testimonialDanielText:
+      '"Kadir ist sehr verantwortungsbewusst und hat während des Joins Projekts mit seiner positiven Art die Gruppenarbeit am Leben erhalten. Er ist eine Bereicherung für jedes Team."',
+    testimonialHusseinText:
+      '"Kadir stellt den Erfolg des Teams immer an erster Stelle. Er ist wissbegierig, freundlich und ein absoluter Teamplayer. Kadir ist für jedes Team definitiv eine Bereicherung."',
     testimonialLink: "LinkedIn Profil",
 
     contactHeading: "Kontaktiere mich",
@@ -175,11 +183,11 @@ const translations = {
     contactAccent: "Lass uns zusammenarbeiten!",
 
     contactLabelName: "Dein Name",
-    contactLabelEmail: "Deine E‑Mail",
+    contactLabelEmail: "Deine E-Mail",
     contactLabelMessage: "Deine Nachricht",
 
     contactErrorName: "Dein Name wird benötigt",
-    contactErrorEmail: "Deine E‑Mail wird benötigt",
+    contactErrorEmail: "Deine E-Mail wird benötigt",
     contactErrorMessage: "Deine Nachricht wird benötigt",
 
     contactPrivacy:
@@ -213,3 +221,108 @@ const translations = {
       "Ich arbeite derzeit daran, meine Frontend und Fullstack Fähigkeiten zu erweitern.",
   },
 };
+
+const DEFAULT_LANGUAGE = "de";
+const LANGUAGE_STORAGE_KEY = "portfolio-language";
+
+/**
+ * Returns a valid language code.
+ * @param {string | null} languageCode - Raw language code.
+ * @returns {"de" | "en"} Sanitized language code.
+ */
+function normalizeLanguage(languageCode) {
+  return languageCode === "en" ? "en" : "de";
+}
+
+/**
+ * Applies translated text to all elements with data-i18n attributes.
+ * @param {"de" | "en"} languageCode - Active language.
+ */
+function applyTranslations(languageCode) {
+  const dictionary = translations[languageCode];
+  const i18nElements = document.querySelectorAll("[data-i18n]");
+
+  i18nElements.forEach((element) => {
+    const translationKey = element.dataset.i18n;
+    const translatedValue = dictionary[translationKey];
+    if (!translatedValue) return;
+
+    if (translatedValue.includes("<br") || translatedValue.includes("<a")) {
+      element.innerHTML = translatedValue;
+    } else {
+      element.textContent = translatedValue;
+    }
+  });
+}
+
+/**
+ * Syncs active language state for all language buttons.
+ * @param {"de" | "en"} languageCode - Active language.
+ */
+function setActiveLanguageButtons(languageCode) {
+  const languageButtons = document.querySelectorAll(".nav-lang-option");
+  languageButtons.forEach((languageButton) => {
+    const buttonLanguage = languageButton.textContent.trim().toLowerCase();
+    languageButton.classList.toggle("active", buttonLanguage === languageCode);
+  });
+}
+
+/**
+ * Updates document language and keeps selected language persisted.
+ * @param {"de" | "en"} languageCode - Active language.
+ */
+function setLanguage(languageCode) {
+  const safeLanguage = normalizeLanguage(languageCode);
+  document.documentElement.lang = safeLanguage;
+  localStorage.setItem(LANGUAGE_STORAGE_KEY, safeLanguage);
+  applyTranslations(safeLanguage);
+  setActiveLanguageButtons(safeLanguage);
+  document.dispatchEvent(
+    new CustomEvent("languageChanged", { detail: { language: safeLanguage } }),
+  );
+}
+
+/**
+ * Returns the active language from storage.
+ * @returns {"de" | "en"} Current language.
+ */
+function getCurrentLanguage() {
+  return normalizeLanguage(localStorage.getItem(LANGUAGE_STORAGE_KEY));
+}
+
+/**
+ * Resolves one translation key for the current language.
+ * Falls back to English if key is missing.
+ * @param {string} translationKey - Translation dictionary key.
+ * @returns {string} Translated value or key as fallback.
+ */
+function getTranslationByKey(translationKey) {
+  const currentLanguage = getCurrentLanguage();
+  return (
+    translations[currentLanguage][translationKey] ??
+    translations.en[translationKey] ??
+    translationKey
+  );
+}
+
+window.getTranslationByKey = getTranslationByKey;
+
+/**
+ * Initializes language switching via DE/EN buttons.
+ */
+function initLanguageSwitcher() {
+  const languageButtons = document.querySelectorAll(".nav-lang-option");
+
+  languageButtons.forEach((languageButton) => {
+    languageButton.addEventListener("click", (event) => {
+      event.preventDefault();
+      const selectedLanguage = languageButton.textContent.trim().toLowerCase();
+      setLanguage(normalizeLanguage(selectedLanguage));
+    });
+  });
+
+  const savedLanguage = localStorage.getItem(LANGUAGE_STORAGE_KEY);
+  setLanguage(savedLanguage || DEFAULT_LANGUAGE);
+}
+
+initLanguageSwitcher();

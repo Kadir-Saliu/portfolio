@@ -1,4 +1,45 @@
 /**
+ * Returns HTML for a single project section.
+ * @param {Object} section - Section object containing title and text.
+ * @returns {string} HTML string for the section.
+ */
+function renderSectionTemplate(section) {
+  const sectionTitle = resolveSectionText(section.titleKey, section.title);
+  const sectionText = resolveSectionText(section.textKey, section.text);
+
+  return `
+    <section class="project-section">
+      <img class="project-bullet" src="./assets/img/icons/bullet-icon.png" alt="" aria-hidden="true" />
+      <div class="project-text">
+        <h3 class="project-heading">${sectionTitle}</h3>
+        <p class="project-description">${sectionText}</p>
+      </div>
+    </section>`;
+}
+
+/**
+ * Resolves text by translation key with fallback to plain value.
+ * @param {string | undefined} translationKey - Translation key.
+ * @param {string} fallbackValue - Fallback text value.
+ * @returns {string} Resolved text.
+ */
+function resolveSectionText(translationKey, fallbackValue) {
+  if (!translationKey || typeof window.getTranslationByKey !== "function") {
+    return fallbackValue;
+  }
+  return window.getTranslationByKey(translationKey);
+}
+
+/**
+ * Renders all desktop project sections into HTML.
+ * @param {Array<Object>} sections - Array of section objects.
+ * @returns {string} HTML string for all sections.
+ */
+function renderSections(sections) {
+  return sections.map(renderSectionTemplate).join("");
+}
+
+/**
  * Renders all desktop technology icons into HTML.
  * @param {string[]} icons - Array of icon image paths.
  * @returns {string} HTML string for all icons.
@@ -66,6 +107,17 @@ function renderMobileTech(project) {
   const techContainer = document.querySelector(".project-mobile-tech");
   techContainer.innerHTML = project.tech
     .map((iconPath) => `<span>${extractTechName(iconPath)}</span>`)
+    .join("");
+}
+
+/**
+ * Renders all mobile project sections.
+ * @param {Object} project - Project data object.
+ */
+function renderMobileSections(project) {
+  const mobileContent = document.querySelector(".project-mobile-content");
+  mobileContent.innerHTML = project.sections
+    .map(renderSectionTemplate)
     .join("");
 }
 
