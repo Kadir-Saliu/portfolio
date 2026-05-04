@@ -31,6 +31,11 @@ function initProjects() {
     projectKeys,
   );
 
+  // Render the first project on initial load
+  const firstProject = projects[projectKeys[0]];
+  renderProjectContent(elements, firstProject);
+  renderMobileProject(firstProject);
+
   document.addEventListener("languageChanged", () =>
     renderActiveProject(
       desktopButtons,
@@ -140,8 +145,8 @@ function getDomElements() {
     projectContent: document.querySelector(".project-content"),
     techIcons: document.querySelector(".project-icon"),
     previewImg: document.querySelector(".project-preview-img"),
-    liveBtn: document.querySelector(".project-btn-live"),
-    gitBtn: document.querySelector(".project-btn-git"),
+    liveBtns: document.querySelectorAll(".project-btn-live"),
+    gitBtns: document.querySelectorAll(".project-btn-git"),
   };
 }
 
@@ -174,13 +179,22 @@ function renderProjectContent(elements, project) {
  */
 function updateButtons(elements, project) {
   const hasLinks = project.live && project.git;
-  elements.liveBtn.style.display = hasLinks ? "inline-flex" : "none";
-  elements.gitBtn.style.display = hasLinks ? "inline-flex" : "none";
-
-  if (hasLinks) {
-    elements.liveBtn.href = project.live;
-    elements.gitBtn.href = project.git;
-  }
+  elements.liveBtns.forEach((btn) => {
+    btn.style.display = hasLinks ? "inline-flex" : "none";
+    if (hasLinks) {
+      btn.href = project.live;
+      btn.target = "_blank";
+      btn.rel = "noopener noreferrer";
+    }
+  });
+  elements.gitBtns.forEach((btn) => {
+    btn.style.display = hasLinks ? "inline-flex" : "none";
+    if (hasLinks) {
+      btn.href = project.git;
+      btn.target = "_blank";
+      btn.rel = "noopener noreferrer";
+    }
+  });
 }
 
 /**

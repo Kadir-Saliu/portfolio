@@ -35,8 +35,8 @@ function getProjects() {
         "./assets/img/icons/tech-icons/css-project-icon.png",
       ],
       img: "./assets/img/project-img/el-pollo-loco-2 (1).png",
-      live: "https://kadir-saliu.developerakademie.net/el_pollo_loco/index.html",
-      git: "https://github.com/Kadir-Saliu",
+      live: "https://el-pollo-loco.kadir-saliu.de",
+      git: "https://github.com/Kadir-Saliu/el_pollo_loco",
     },
 
     join: {
@@ -68,8 +68,8 @@ function getProjects() {
         "./assets/img/icons/tech-icons/firebase-project-icon.png",
       ],
       img: "./assets/img/project-img/join.png",
-      live: "https://kadir-saliu.developerakademie.net/join/index.html",
-      git: "https://github.com/Kadir-Saliu",
+      live: "https://join.kadir-saliu.de",
+      git: "https://github.com/Kadir-Saliu/join",
     },
 
     "ongoing-project": {

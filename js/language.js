@@ -108,6 +108,28 @@ const translations = {
     ongoingAbout: "About the Project",
     ongoingAboutText:
       "I am currently working on expanding my frontend and fullstack skills by building a modern application with Angular and TypeScript.",
+
+    legalNoticeTitle: "Legal Notice",
+    legalNoticeHeading: "Impressum",
+    legalInfo1Title: "1. Information in accordance with § 5 TMG",
+    legalInfo1Text: "Kadir Saliu",
+    legalInfo2Title: "2. Contact",
+    legalInfo2Text: "Email: ",
+    legalInfo3Title: "3. Responsibility for contents",
+    legalInfo3Text:
+      "As service providers, we are liable for own contents on these pages in accordance with general laws. However, according to §§ 7 to 10 of the TMG, as service providers we are not under obligation to monitor transmitted or stored third party information or to investigate circumstances pointing to illegal activity. Obligations to remove or block the use of information under general law remain unaffected hereby. Any liability in this regard is, however, only possible from the point in time, at which we have obtained knowledge of the respective infringement.",
+    legalInfo4Title: "4. Responsibility for links",
+    legalInfo4Text:
+      "Our website contains links to external websites. As the content of these third party websites is beyond our control, we cannot accept liability for such external content. In all cases, the provider of information of the linked websites is liable for the contents and accuracy of the information provided.",
+    legalInfo5Title: "5. Copyright",
+    legalInfo5Text:
+      "The contents and works provided on this website are governed by the copyright laws of Germany. Duplication, processing, distribution, or any form of utilization beyond the scope of copyright will require the prior written consent of the author or authors. Downloads and copies of this website are permitted for private use only. Commercial use or presentation of these contents or works in public, radio, television or online services, as well as their change or falsification is not permitted.",
+    legalInfo6Title: "6. Disclaimer",
+    legalInfo6Text:
+      "We make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability or availability with respect to the website or the information, products, services, or related graphics contained on the website for any purpose. Any reliance you place on such information is therefore strictly at your own risk.",
+    legalInfo7Title: "7. Limitation of liability",
+    legalInfo7Text:
+      "In no event will we be liable to you in relation to the contents of, or use of, or otherwise in connection with, this website for any indirect, special or consequential loss, or for any business losses, loss of revenue, income, profits or anticipated savings.",
   },
 
   de: {
@@ -219,6 +241,28 @@ const translations = {
     ongoingAbout: "Über das Projekt",
     ongoingAboutText:
       "Ich arbeite derzeit daran, meine Frontend und Fullstack Fähigkeiten zu erweitern.",
+
+    legalNoticeTitle: "Impressum",
+    legalNoticeHeading: "Impressum",
+    legalInfo1Title: "1. Angaben gemäß § 5 TMG",
+    legalInfo1Text: "Kadir Saliu",
+    legalInfo2Title: "2. Kontakt",
+    legalInfo2Text: "E-Mail: ",
+    legalInfo3Title: "3. Haftung für Inhalte",
+    legalInfo3Text:
+      "Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 des TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine Haftung ist jedoch nur möglich ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung.",
+    legalInfo4Title: "4. Haftung für Links",
+    legalInfo4Text:
+      "Unsere Website enthält Links zu externen Websites. Da der Inhalt dieser Websites außerhalb unserer Kontrolle liegt, können wir keine Haftung für diese fremden Inhalte übernehmen. In jedem Fall haftet der Anbieter der externen Website, auf deren Website sich die jeweiligen Inhalte befinden.",
+    legalInfo5Title: "5. Urheberrecht",
+    legalInfo5Text:
+      "Die durch die Seitenbetreiber erstellten Inhalte und Werke dieser Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des Autors oder Urhebers resp. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet. Insofern die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet.",
+    legalInfo6Title: "6. Haftungsausschluss",
+    legalInfo6Text:
+      "Wir übernehmen keine Gewähr für die Richtigkeit, Genauigkeit, Zuverlässigkeit, Eignung oder Verfügbarkeit der Website oder der darin enthaltenen Informationen, Produkte, Dienstleistungen oder zugehörigen Grafiken. Jede Vertrauensposition auf solche Informationen erfolgt auf eigenes Risiko.",
+    legalInfo7Title: "7. Haftungsbeschränkung",
+    legalInfo7Text:
+      "Wir haften nicht für indirekte, besondere oder Folgeschäden oder für Geschäftsverluste, Umsatzverluste, Einnahmeverluste, Gewinne oder erwartete Einsparungen.",
   },
 };
 

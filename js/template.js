@@ -130,6 +130,8 @@ function toggleButton(button, url) {
   if (url) {
     button.style.display = "inline-flex";
     button.href = url;
+    button.target = "_blank";
+    button.rel = "noopener noreferrer";
   } else {
     button.style.display = "none";
   }
@@ -140,9 +142,9 @@ function toggleButton(button, url) {
  * @param {Object} project - Project data object.
  */
 function renderMobileButtons(project) {
-  const liveButton = document.querySelector(".project-btn-live");
-  const gitButton = document.querySelector(".project-btn-git");
+  const liveButtons = document.querySelectorAll(".project-btn-live");
+  const gitButtons = document.querySelectorAll(".project-btn-git");
 
-  toggleButton(liveButton, project.live);
-  toggleButton(gitButton, project.git);
+  liveButtons.forEach((button) => toggleButton(button, project.live));
+  gitButtons.forEach((button) => toggleButton(button, project.git));
 }
