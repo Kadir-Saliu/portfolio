@@ -79,8 +79,7 @@ const translations = {
     contactErrorEmail: "Your email is required",
     contactErrorMessage: "Your message is required",
 
-    contactPrivacy:
-      "I've read the privacy policy and agree to the processing of my data as outlined.",
+    contactPrivacy: "privacy policy",
     contactSend: "Send",
 
     footerLegal: "Legal notice",
@@ -212,8 +211,7 @@ const translations = {
     contactErrorEmail: "Deine E-Mail wird benötigt",
     contactErrorMessage: "Deine Nachricht wird benötigt",
 
-    contactPrivacy:
-      "Ich habe die Datenschutzerklärung gelesen und stimme der Verarbeitung meiner Daten zu.",
+    contactPrivacy: "Datenschutzerklärung",
     contactSend: "Senden",
 
     footerLegal: "Impressum",

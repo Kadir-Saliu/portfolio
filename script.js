@@ -218,8 +218,9 @@ function initContactValidation() {
   const messageField = document.getElementById("message");
   const privacyCheckbox = document.getElementById("privacy");
   const submitButton = document.querySelector(".contact-submit");
+  const form = document.querySelector(".contact-form");
 
-  addInputListeners([nameField, emailField, messageField]);
+  addInputListeners([nameField, emailField, messageField], privacyCheckbox, submitButton);
   privacyCheckbox.addEventListener("change", () =>
     validateForm(
       nameField,
@@ -229,15 +230,31 @@ function initContactValidation() {
       submitButton,
     ),
   );
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    sendContactForm(nameField, emailField, messageField);
+  });
 }
 
 /**
  * Adds blur listeners to input fields.
  * @param {HTMLElement[]} inputFields - Input elements.
+ * @param {HTMLElement} privacyCheckbox
+ * @param {HTMLElement} submitButton
  */
-function addInputListeners(inputFields) {
+function addInputListeners(inputFields, privacyCheckbox, submitButton) {
   inputFields.forEach((inputField) => {
-    inputField.addEventListener("blur", () => validateInputField(inputField));
+    inputField.addEventListener("blur", () => {
+      validateInputField(inputField);
+      validateForm(
+        document.getElementById("name"),
+        document.getElementById("email"),
+        document.getElementById("message"),
+        privacyCheckbox,
+        submitButton,
+      );
+    });
   });
 }
 
@@ -293,6 +310,78 @@ function validateForm(
   submitButton.style.color = formIsValid ? "white" : "grey";
   submitButton.style.borderColor = formIsValid ? "rgb(137, 188, 217)" : "grey";
   submitButton.style.cursor = formIsValid ? "pointer" : "not-allowed";
+}
+
+/**
+ * Sends the contact form data via AJAX.
+ * @param {HTMLElement} nameField
+ * @param {HTMLElement} emailField
+ * @param {HTMLElement} messageField
+ */
+function sendContactForm(nameField, emailField, messageField) {
+  const notification = document.getElementById("notification");
+  const submitButton = document.querySelector(".contact-submit");
+
+  // Disable button during sending
+  submitButton.disabled = true;
+  submitButton.textContent = "Sending...";
+
+  const data = {
+    name: nameField.value.trim(),
+    email: emailField.value.trim(),
+    message: messageField.value.trim(),
+  };
+
+  fetch("contact_form_mail.php", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`HTTP Fehler: ${response.status}`);
+      }
+      const contentType = response.headers.get("content-type");
+      if (!contentType || !contentType.includes("application/json")) {
+        throw new Error("Server hat keine JSON-Antwort gesendet");
+      }
+      return response.json();
+    })
+    .then((result) => {
+      if (result.success) {
+        notification.className = "notification success";
+        notification.textContent = "Mail versendet!";
+        notification.style.display = "block";
+        // Clear form
+        nameField.value = "";
+        emailField.value = "";
+        messageField.value = "";
+        document.getElementById("privacy").checked = false;
+      } else {
+        notification.className = "notification error";
+        notification.textContent = "Fehler beim Versenden: " + (result.error || "Unbekannter Fehler");
+        notification.style.display = "block";
+      }
+    })
+    .catch((error) => {
+      notification.className = "notification error";
+      notification.textContent = "Netzwerkfehler: " + error.message;
+      notification.style.display = "block";
+    })
+    .finally(() => {
+      submitButton.disabled = false;
+      submitButton.textContent = "Send";
+      // Re-validate form
+      validateForm(
+        nameField,
+        emailField,
+        messageField,
+        document.getElementById("privacy"),
+        submitButton,
+      );
+    });
 }
 
 /**

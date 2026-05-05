@@ -697,9 +697,9 @@
             <label class="checkbox-wrapper">
               <input class="contact-checkbox" type="checkbox" id="privacy" />
               <span class="checkbox-custom"></span>
-              <p class="contact-privacy-text" data-i18n="contactPrivacy">
+              <p class="contact-privacy-text">
                 I've read the
-                <a href="" class="privacy-policy">privacy policy</a>
+                <a href="./legal-notice.html" class="privacy-policy" data-i18n="contactPrivacy">privacy policy</a>
                 and agree to the processing of my data as outlined.
               </p>
             </label>
@@ -708,6 +708,8 @@
           <button class="contact-submit" disabled data-i18n="contactSend">
             Send
           </button>
+
+          <div id="notification" class="notification" style="display: none;"></div>
         </form>
 
         <a href="#hero">
