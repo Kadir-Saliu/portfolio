@@ -68,7 +68,7 @@ const translations = {
 
     contactHeading: "Contact me",
     contactDescription:
-      "Encourage people to contact you and describe what role you are interested in. Show that you will add value to their projects through your work.",
+      "I am open to exciting frontend projects and job offers. As a passionate frontend developer, I bring creativity, team spirit, and technical expertise to create innovative web solutions. Feel free to contact me for opportunities such as: web development, UI/UX design, agile teamwork, or new technologies.",
     contactAccent: "Let us work together!",
 
     contactLabelName: "Your Name",
@@ -211,7 +211,7 @@ const translations = {
 
     contactHeading: "Kontaktiere mich",
     contactDescription:
-      "Ermutige Menschen, dich zu kontaktieren, und beschreibe, für welche Rolle du dich interessierst. Zeige, dass du durch deine Arbeit einen Mehrwert für ihre Projekte schaffst.",
+      "Ich bin offen für spannende Frontend-Projekte und Jobangebote. Als passionierter Frontend-Entwickler bringe ich Kreativität, Teamgeist und technische Expertise ein, um innovative Weblösungen zu schaffen. Kontaktiere mich gerne für Möglichkeiten wie: Webentwicklung, UI/UX-Design, agile Teamarbeit oder neue Technologien.",
     contactAccent: "Lass uns zusammenarbeiten!",
 
     contactLabelName: "Dein Name",
