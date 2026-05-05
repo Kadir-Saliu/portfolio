@@ -777,7 +777,7 @@ nav h2 {
   visibility: hidden;
   opacity: 0;
   color: rgb(255, 120, 120) !important;
-  font-size: 14px;
+  font-size: 16px;
   margin-top: 5px;
   transition: opacity 0.2s ease;
 }
@@ -840,9 +840,7 @@ nav h2 {
 
 .contact-privacy-text {
   color: white;
-  font-size: 14px;
-  line-height: 1.4;
-  cursor: default;
+    font-size: 16px;
 }
 
 .contact-submit {
@@ -1106,6 +1104,7 @@ footer h2 {
 
   .hero-content {
     padding-top: 0px;
+   
   }
 
   .personal-social-media {
@@ -1125,7 +1124,7 @@ footer h2 {
   }
 
   .nav-responsiv span {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   .bg-shape-background {
@@ -1191,6 +1190,7 @@ footer h2 {
   .skill-container {
     flex-direction: column;
     align-items: center;
+    gap: 24px;
   }
 
   .my-skills {
@@ -1417,12 +1417,28 @@ footer h2 {
   }
   .testimonials-description {
     color: white;
-    font-size: 14px;
+    font-size: 16px;
     display: block;
   }
 }
 
 @media (max-width: 900px) {
+  .content,
+  .content-contact,
+  .projects-mobile {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  section {
+    margin: 0 auto 60px;
+  }
+
+  .hero {
+    padding-top: 70px;
+    height: auto;
+  }
+
   .why-me-title {
     font-size: 48px;
     text-align: center;
@@ -1458,7 +1474,7 @@ footer h2 {
   }
 
   .testimonial-card {
-    flex: 0 0 280px;
+    flex: 0 0 356px;
     width: auto;
     max-width: none;
     scroll-snap-align: center;
@@ -1488,11 +1504,11 @@ footer h2 {
   }
 
   .testimonial-project {
-    font-size: 12px;
+    font-size: 16px;
   }
 
   .testimonial-text {
-    font-size: 12px;
+    font-size: 16px;
     line-height: 1.5;
   }
 }
@@ -1525,7 +1541,7 @@ footer h2 {
   }
 
   .legal-content p {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   .arrow-img {
@@ -1538,6 +1554,10 @@ footer h2 {
 
   .why-me-location {
     font-size: 16px;
+  }
+
+  section {
+    margin-bottom: 50px;
   }
 
   .bg-location {
@@ -1553,8 +1573,8 @@ footer h2 {
 
 @media (max-width: 510px) {
   .skill-icons {
-    gap: 0;
-    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   footer {
