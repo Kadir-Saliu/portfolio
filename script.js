@@ -182,6 +182,19 @@ function renderProjectContent(elements, project) {
   elements.techIcons.innerHTML = renderTechIcons(project.tech);
   elements.previewImg.src = project.img;
   updateButtons(elements, project);
+  animateProjectTransition();
+}
+
+function animateProjectTransition() {
+  const viewport = document.querySelector(".projects-viewport");
+  const mobileSection = document.querySelector(".projects-mobile");
+  [viewport, mobileSection].forEach((element) => {
+    if (!element) return;
+    element.classList.remove("project-transition");
+    // Force reflow to restart animation
+    void element.offsetWidth;
+    element.classList.add("project-transition");
+  });
 }
 
 /**
