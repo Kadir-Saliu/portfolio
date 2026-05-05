@@ -10,6 +10,7 @@ function init() {
   initProjects();
   initContactValidation();
   initMobileMenu();
+  initAnchorLinks();
   initNavActive();
 }
 
@@ -503,7 +504,50 @@ function initMobileMenu() {
   mobileOverlay.addEventListener("click", closeMenuOnOverlayClick);
   document
     .querySelectorAll(".mobile-menu-links a")
-    .forEach((link) => link.addEventListener("click", closeMobileMenu));
+    .forEach((link) =>
+      link.addEventListener("click", () => {
+        closeMobileMenu();
+      }),
+    );
+}
+
+function initAnchorLinks() {
+  document.querySelectorAll('a[href^="#"]').forEach((link) => {
+    if (link.getAttribute("href") === "#") return;
+    link.addEventListener("click", (event) => scrollToAnchor(event, link));
+  });
+}
+
+function scrollToAnchor(event, link) {
+  const targetId = link.getAttribute("href")?.slice(1);
+  let targetElement = document.getElementById(targetId);
+
+  if (targetId === "projects") {
+    const mobileSectionTitle = document.querySelector(".projects-title.mobile-title");
+    if (mobileSectionTitle && window.getComputedStyle(mobileSectionTitle).display !== "none") {
+      targetElement = mobileSectionTitle;
+    }
+  }
+
+  if (!targetElement) return;
+
+  event.preventDefault();
+
+  const header = document.querySelector(".nav");
+  const headerHeight = header ? header.offsetHeight : 0;
+  const offset = 20;
+  const targetPosition =
+    targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight - offset;
+
+  window.scrollTo({ top: targetPosition, behavior: "smooth" });
+
+  const navigationLinks = document.querySelectorAll(".nav-link");
+  const matchingDesktopLink = Array.from(navigationLinks).find(
+    (navLink) => navLink.getAttribute("href") === `#${targetId}`,
+  );
+  if (matchingDesktopLink) {
+    setActiveNavigationLink(navigationLinks, matchingDesktopLink);
+  }
 }
 
 /**
