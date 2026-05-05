@@ -353,7 +353,7 @@ nav h2 {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 30px;
-  width: 50%;
+  width: 70%;
   justify-items: center;
 }
 
@@ -374,6 +374,7 @@ nav h2 {
   align-items: center;
   border-radius: 12px;
   transition: background-image 0.3s ease;
+  flex: 0 0 320px;
 }
 
 .to-learn-skills:hover {
@@ -1065,7 +1066,7 @@ footer h2 {
   justify-content: center;
   gap: 20px;
   color: white;
-  font-size: clamp(14px, 3vw, 20px);
+  font-size: clamp(16px, 3vw, 20px);
   margin-bottom: 20px;
 }
 
@@ -1228,7 +1229,7 @@ footer h2 {
   }
 
   .learn-text-responsiv span {
-    font-size: clamp(14px, 2.2vw, 18px);
+    font-size: clamp(16px, 2.2vw, 18px);
     line-height: clamp(1.25, 2vw, 1.4);
     display: block;
   }
@@ -1286,7 +1287,7 @@ footer h2 {
     border: none;
     padding: 10px 16px;
     border-radius: 8px;
-    font-size: clamp(14px, 3vw, 18px);
+    font-size: 16px;
     cursor: pointer;
   }
 
@@ -1314,7 +1315,7 @@ footer h2 {
     justify-content: center;
     gap: 16px;
     color: white;
-    font-size: clamp(14px, 3vw, 20px);
+    font-size: clamp(16px, 3vw, 20px);
     margin-bottom: 30px;
   }
 
@@ -1347,7 +1348,7 @@ footer h2 {
   }
 
   .project-description {
-    font-size: clamp(14px, 3vw, 18px);
+    font-size: clamp(16px, 3vw, 18px);
     line-height: 1.5;
   }
 
@@ -1573,7 +1574,7 @@ footer h2 {
 
 @media (max-width: 510px) {
   .skill-icons {
-    gap: 8px;
+    gap: 12px;
     grid-template-columns: repeat(2, 1fr);
   }
 
