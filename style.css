@@ -732,12 +732,14 @@ nav h2 {
   display: flex;
   flex-direction: column;
   width: 50%;
+  min-height: 110px;
 }
 
 .input-group-message {
   display: flex;
   flex-direction: column;
   width: 100%;
+  min-height: 210px;
 }
 
 .contact-input {
@@ -771,10 +773,18 @@ nav h2 {
 }
 
 .error-message {
-  display: none;
+  min-height: 20px;
+  visibility: hidden;
+  opacity: 0;
   color: rgb(255, 120, 120) !important;
   font-size: 14px;
   margin-top: 5px;
+  transition: opacity 0.2s ease;
+}
+
+.error-message.visible {
+  visibility: visible;
+  opacity: 1;
 }
 
 .contact-input.error,
@@ -1461,6 +1471,10 @@ footer h2 {
     gap: 20px;
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
+    -webkit-scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
     padding: 0 40px;
     scroll-behavior: smooth;
   }

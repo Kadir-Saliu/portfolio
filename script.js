@@ -383,6 +383,32 @@ function hideNotification() {
 }
 
 /**
+ * Displays an error message for a field.
+ * @param {HTMLElement} inputField
+ * @param {HTMLElement} errorMessageElement
+ * @param {string} message
+ */
+function showError(inputField, errorMessageElement, message) {
+  inputField.classList.add("error");
+  if (errorMessageElement) {
+    errorMessageElement.textContent = message;
+    errorMessageElement.classList.add("visible");
+  }
+}
+
+/**
+ * Hides an error message for a field.
+ * @param {HTMLElement} inputField
+ * @param {HTMLElement} errorMessageElement
+ */
+function hideError(inputField, errorMessageElement) {
+  inputField.classList.remove("error");
+  if (errorMessageElement) {
+    errorMessageElement.classList.remove("visible");
+  }
+}
+
+/**
  * Sends the contact form data via AJAX.
  * @param {HTMLElement} nameField
  * @param {HTMLElement} emailField
@@ -458,32 +484,6 @@ function sendContactForm(nameField, emailField, messageField) {
         submitButton,
       );
     });
-}
-
-/**
- * Displays an error message for a field.
- * @param {HTMLElement} inputField
- * @param {HTMLElement} errorMessageElement
- * @param {string} message
- */
-function showError(inputField, errorMessageElement, message) {
-  inputField.classList.add("error");
-  if (errorMessageElement) {
-    errorMessageElement.textContent = message;
-    errorMessageElement.style.display = "block";
-  }
-}
-
-/**
- * Hides an error message for a field.
- * @param {HTMLElement} inputField
- * @param {HTMLElement} errorMessageElement
- */
-function hideError(inputField, errorMessageElement) {
-  inputField.classList.remove("error");
-  if (errorMessageElement) {
-    errorMessageElement.style.display = "none";
-  }
 }
 
 /**
