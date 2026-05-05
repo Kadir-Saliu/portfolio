@@ -6,10 +6,22 @@ const mobileOverlay = document.querySelector(".mobile-menu-shape");
  * Initializes all application modules after the DOM is fully loaded.
  */
 function init() {
+  initAos();
   initProjects();
   initContactValidation();
   initMobileMenu();
   initNavActive();
+}
+
+function initAos() {
+  if (window.AOS) {
+    AOS.init({
+      duration: 1000,
+      easing: "ease-out-cubic",
+      once: true,
+      offset: 120,
+    });
+  }
 }
 
 /**
