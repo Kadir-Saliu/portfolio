@@ -77,10 +77,21 @@ const translations = {
 
     contactErrorName: "Your name is required",
     contactErrorEmail: "Your email is required",
+    contactErrorEmailInvalid: "Please enter a valid email address",
     contactErrorMessage: "Your message is required",
+    contactErrorPrivacy: "Please accept the privacy policy.",
 
     contactPrivacy: "privacy policy",
+    contactPrivacyText:
+      'I\'ve read the <a href="./legal-notice.html" class="privacy-policy">privacy policy</a> and agree to the processing of my data as outlined.',
+    contactNotificationFormInvalid:
+      "Please fill in all required fields and accept the privacy policy.",
+    contactNotificationSendSuccess: "Mail sent successfully.",
+    contactNotificationSendError: "Error sending message:",
+    contactNotificationNetworkError: "Network error:",
+    contactNotificationUnknownError: "Unknown error.",
     contactSend: "Send",
+    contactSendSending: "Sending...",
 
     footerLegal: "Legal notice",
 
@@ -209,10 +220,21 @@ const translations = {
 
     contactErrorName: "Dein Name wird benötigt",
     contactErrorEmail: "Deine E-Mail wird benötigt",
+    contactErrorEmailInvalid: "Bitte gib eine gültige E-Mail-Adresse ein",
     contactErrorMessage: "Deine Nachricht wird benötigt",
+    contactErrorPrivacy: "Bitte akzeptiere die Datenschutzerklärung.",
 
     contactPrivacy: "Datenschutzerklärung",
+    contactPrivacyText:
+      'Ich habe die <a href="./legal-notice.html" class="privacy-policy">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Daten zu.',
+    contactNotificationFormInvalid:
+      "Bitte fülle alle Pflichtfelder aus und akzeptiere die Datenschutzerklärung.",
+    contactNotificationSendSuccess: "Mail erfolgreich gesendet.",
+    contactNotificationSendError: "Fehler beim Versenden:",
+    contactNotificationNetworkError: "Netzwerkfehler:",
+    contactNotificationUnknownError: "Unbekannter Fehler.",
     contactSend: "Senden",
+    contactSendSending: "Sende...",
 
     footerLegal: "Impressum",
 

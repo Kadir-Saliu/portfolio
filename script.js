@@ -233,6 +233,28 @@ function initContactValidation() {
 
   form.addEventListener("submit", (event) => {
     event.preventDefault();
+    hideNotification();
+
+    const nameValid = validateInputField(nameField);
+    const emailValid = validateInputField(emailField);
+    const messageValid = validateInputField(messageField);
+    const privacyChecked = privacyCheckbox.checked;
+
+    if (!nameValid || !emailValid || !messageValid || !privacyChecked) {
+      const notificationKey = privacyChecked
+        ? "contactNotificationFormInvalid"
+        : "contactErrorPrivacy";
+      showNotification(getTranslationByKey(notificationKey), "error");
+      validateForm(
+        nameField,
+        emailField,
+        messageField,
+        privacyCheckbox,
+        submitButton,
+      );
+      return;
+    }
+
     sendContactForm(nameField, emailField, messageField);
   });
 }
@@ -266,18 +288,28 @@ function addInputListeners(inputFields, privacyCheckbox, submitButton) {
 function validateInputField(inputField) {
   const errorMessageElement =
     inputField.parentElement.querySelector(".error-message");
+  const emptyMessageKey =
+    inputField.id === "name"
+      ? "contactErrorName"
+      : inputField.id === "email"
+      ? "contactErrorEmail"
+      : "contactErrorMessage";
 
   if (inputField.value.trim() === "") {
     showError(
       inputField,
       errorMessageElement,
-      `${inputField.labels[0].innerText} is required`,
+      getTranslationByKey(emptyMessageKey),
     );
     return false;
   }
 
   if (inputField.id === "email" && !isValidEmail(inputField.value)) {
-    showError(inputField, errorMessageElement, "Please enter a valid email");
+    showError(
+      inputField,
+      errorMessageElement,
+      getTranslationByKey("contactErrorEmailInvalid"),
+    );
     return false;
   }
 
@@ -306,10 +338,23 @@ function validateForm(
     messageField.value.trim() !== "" &&
     privacyCheckbox.checked;
 
-  submitButton.disabled = !formIsValid;
   submitButton.style.color = formIsValid ? "white" : "grey";
   submitButton.style.borderColor = formIsValid ? "rgb(137, 188, 217)" : "grey";
   submitButton.style.cursor = formIsValid ? "pointer" : "not-allowed";
+}
+
+function showNotification(message, type = "error") {
+  const notification = document.getElementById("notification");
+  notification.className = `notification ${type}`;
+  notification.textContent = message;
+  notification.style.display = "block";
+}
+
+function hideNotification() {
+  const notification = document.getElementById("notification");
+  notification.style.display = "none";
+  notification.textContent = "";
+  notification.className = "notification";
 }
 
 /**
@@ -324,7 +369,7 @@ function sendContactForm(nameField, emailField, messageField) {
 
   // Disable button during sending
   submitButton.disabled = true;
-  submitButton.textContent = "Sending...";
+  submitButton.textContent = getTranslationByKey("contactSendSending");
 
   const data = {
     name: nameField.value.trim(),
@@ -352,7 +397,7 @@ function sendContactForm(nameField, emailField, messageField) {
     .then((result) => {
       if (result.success) {
         notification.className = "notification success";
-        notification.textContent = "Mail versendet!";
+        notification.textContent = getTranslationByKey("contactNotificationSendSuccess");
         notification.style.display = "block";
         // Clear form
         nameField.value = "";
@@ -361,18 +406,24 @@ function sendContactForm(nameField, emailField, messageField) {
         document.getElementById("privacy").checked = false;
       } else {
         notification.className = "notification error";
-        notification.textContent = "Fehler beim Versenden: " + (result.error || "Unbekannter Fehler");
+        notification.textContent =
+          getTranslationByKey("contactNotificationSendError") +
+          " " +
+          (result.error || getTranslationByKey("contactNotificationUnknownError"));
         notification.style.display = "block";
       }
     })
     .catch((error) => {
       notification.className = "notification error";
-      notification.textContent = "Netzwerkfehler: " + error.message;
+      notification.textContent =
+        getTranslationByKey("contactNotificationNetworkError") +
+        " " +
+        error.message;
       notification.style.display = "block";
     })
     .finally(() => {
       submitButton.disabled = false;
-      submitButton.textContent = "Send";
+      submitButton.textContent = getTranslationByKey("contactSend");
       // Re-validate form
       validateForm(
         nameField,
